@@ -1,0 +1,150 @@
+.navbar_sec{
+    background: #2874f0;
+}
+
+.navbar_sec .logo{
+    flex-direction: column;
+}
+
+
+.navbar_sec a{
+    text-decoration: none;
+    color: #ffff;
+    font-size: 11px;
+    font-style: italic;
+    margin-top: -1px;
+}
+.navbar_sec a:hover{
+    text-decoration: underline;
+}
+.navbar_sec .plus{
+    
+    color: #ffe500;
+    font-weight: 500;
+    margin-right: 2px;
+}
+.navbar_sec .navbar_sec{
+    flex-direction: column;
+}
+
+.navbar_sec .searchbar_sec{
+    height: 35px;
+    background-color: #ffff;
+    border-radius: 2px;
+    padding: 0px 10px;
+}
+
+.navbar_sec .searchbar_sec i{
+    color: #2874f0;
+}
+.navbar_sec .searchbar_sec input{
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+
+.navbar_sec .login_btn_sec{
+    background-color: #ffff;
+    text-align: center;
+    padding: 2px 30px;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+.navbar_sec .login_btn_sec a{
+    color: #2874f0;
+    font-size: 15px;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+.navbar_sec .options{
+    height: 100%;
+}
+.navbar_sec .more_sec{
+    font-weight: 550;
+    padding: 6px 15px;
+    font-size: 15px;
+    color: #ffff;
+    cursor: pointer;
+    transition: transform 1s;
+}
+.navbar_sec .icon_more{
+    font-size: 10px;
+    transition: transform 0.5s;
+}
+
+
+.more_dropdown{
+    display: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 2px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 100%;
+    left: -60%;
+    margin-top: 0.125rem;
+    border-radius: 0;
+
+}
+.dropdown-toggle::after{
+    display: none;
+}
+.more_dropdown a {
+    color: black;
+}
+
+.navbar_sec .more_sec:hover .icon_more{
+    transform: rotate(-180deg);
+}
+.navbar_sec .more_sec:hover .more_dropdown{
+    display: inline;
+}
+.navbar_sec .more_dropdown:hover .more_dropdown{
+    display: inline;
+}
+
+.more_dropdown .more_links a{ 
+    padding: 8px 20px;
+    width: 100%;
+    border-bottom: 1px solid #a7a7a7;
+    font-weight: 200;
+    font-size: 1rem;
+}
+.more_dropdown .more_links a:hover{
+    background-color: #f0f0f0;
+    text-decoration: none;
+}
+
+
+
+.navbar_sec .cart_sec{
+    font-weight: 550;
+    padding: 0px 15px;
+    font-size: 15px;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.navbar_sec .menu_icon_box{
+    color: transparent;
+}
+
+
+.navbar_sec .searchbar{
+    display: inline;
+}
+.navbar_sec .searchbar_br_point{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar_sec .searchbar{
+        display: none;
+    }
+    .navbar_sec .searchbar_br_point{
+        display: inline;
+    }
+}
