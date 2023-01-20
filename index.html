@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/top_offer.css">
+    <link rel="stylesheet" href="./css/content.css">
+    <link rel="stylesheet" href="./css/productlist.css">
+
+    <!-- owl-carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- *************************************navbar section************************************* -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pt-0">
+        <div class="container-fluid navbar_sec">
+            <div class="container navbar_contentsec p-2">
+                <div class="row">
+                    <div class="col-2 col-sm-1 col-md-1 col-lg-1 d-flex p-0">
+                        <button class="navbar-toggler col-1 ms-2 menu_icon_box p-0 m-0" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fa-solid fa-bars text-white"></i></span>
+                        </button>
+                    </div>
+                    <div class="col-5 col-sm-5 col-md-4 col-lg-1 logo d-flex">
+                        <a href="#"><img src="./img/flipkart-plus_8d85f4.png" alt="logo" width="75"></a>
+                        <a href="#" class="explore">
+                            Explore
+                            <span class="plus">Plus</span>
+                            <img src="./img/plus_sign.png" alt="plus" width="10">
+                        </a>
+                    </div>
+                    <div class="col-11 col-sm-11 col-md-5 col-lg-4 searchbar">
+                        <div class="searchbar_sec d-flex justify-content-center align-items-center">
+                            <input type="text" placeholder="Search for products, brands and more">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <div class="col-5 col-sm-6 col-md-7 col-lg-3 d-flex justify-content-end p-0   ">
+                        <div class="login_btn_sec">
+                            <a href="#">Login</a>
+                        </div>
+                    </div>
+                    <div class="col-12 mx-0 mt-2 searchbar_br_point justify-content-center align-items-center p-0">
+                        <div class="searchbar_sec d-flex justify-content-center align-items-center">
+                            <input type="text" placeholder="Search for products, brands and more">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse col-3 " id="navbarSupportedContent">
+                        <div class="options d-flex align-items-center navbar-nav">
+
+                            <div class="nav-item more_sec my-2 my-md-0 dropdown">
+                                <div class="more_btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    More
+                                    <i class="fa-solid fa-angle-down icon_more "></i>
+                                </div>
+                                <div class="more_dropdown dropdown-menu py-0">
+                                    <div class="btn-group-vertical more_links">
+                                        <a class="dropdown-item" href="#">Notification Prefernces</a>
+                                        <a class="dropdown-item" href="#">24x7 Customer Care</a>
+                                        <a class="dropdown-item" href="#">Advertise</a>
+                                        <a class="dropdown-item" href="#">Download App</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-item cart_sec">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Cart
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- *************************************top offer section************************************* -->
+    <div class="container-fluid top_offer_sec">
+        <div class="container pt-2">
+            <div class="row offer_row">
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/topoffer.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Top Offers
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/grocery.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Grocery
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/fashion.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Fashion
+                            <i class="fa-solid fa-angle-down icon_more ps-1"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/electronics.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Electronics
+                            <i class="fa-solid fa-angle-down icon_more  ps-1"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/home.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Home
+                            <i class="fa-solid fa-angle-down icon_more  ps-1"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/appliances.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Appliances
+                            <i class="fa-solid fa-angle-down icon_more  ps-1"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/travel.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Travel
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/mobiles.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Mobiles
+                        </div>
+                    </a>
+                </div>
+                <div class="col d-flex">
+                    <a href="#">
+                        <div class="offer_img">
+                            <img src="./img/top_offer/toys.webp" alt="mobile">
+                        </div>
+                        <div class="offer_text d-flex align-items-center justify-content-center">
+                            Beauty, Toys and More 
+                            <i class="fa-solid fa-angle-down icon_more  ps-1"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- *************************************content section************************************* -->
+    <div class="container-fluid content_sec">
+        <div class="row content_box g-2 my-2">
+
+            <!-- *************************************deals of the day section************************************* -->
+
+            <div class="col-12 col-sm-9 deal_of_the_day_sec me-md-3">
+                <div class="row title_sec">
+                    <div class="col-9 d-flex">
+                        <div class="col-5 col-md-3 ps-2 py-3">
+                            <h4 class="m-0">Deals of the day</h4>
+                        </div>
+                        <div class="col-12 col-md-2 d-flex align-items-center">
+                            <img src="./img/stopwatch.png" alt="" height="20px" width="20px">
+                            <span class="ms-2 fw-lighter"> 22:07:36 Left</span>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center justify-content-end">
+                        <button type="button" class="btn btn-primary me-3 rounded-0 px-4">View ALL</button>
+                    </div>
+                </div>
+                <hr class="m-0 division">
+                <div class="row body_sec mt-3">
+                    <div class="col product_list">
+                        <div class="owl-carousel owl-theme owl-lazy">
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/printer.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Printer</h6>
+                                            <span class="highlight_text">From ₹2999</span>
+                                            <h6 class="mt-1 mb-0">HP</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/phonestand.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Stand</h6>
+                                            <span class="highlight_text">From ₹399</span>
+                                            <h6 class="mt-1 mb-0">Shop now</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#" class="item_link">
+                                    <div class="card border-0">
+                                        <div class="img_sec">
+                                            <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                                alt="product img">
+                                        </div>
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h6> Monitors</h6>
+                                            <span class="highlight_text">From ₹3999</span>
+                                            <h6 class="mt-1 mb-0">Lenovo</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- *************************************add section************************************* -->
+
+            <div class="col-12 col-sm-1 add_sec">
+                <img src="./img/add.webp" class="image-fluid" alt="" width="100%" height="100%">
+            </div>
+
+        </div>
+
+        <!-- *************************************Product list section************************************* -->
+
+        <div class="row content_box my-2 p-2 p-md-0">
+
+            <div class="col-md-10 shopping_sec">
+                <div class="row product_title_sec">
+                    <div class="col-9 d-flex">
+                        <div class="row">
+                            <div class="col-12  ps-2 py-3">
+                                <h4 class="m-0">Books And musical Instruments</h4>
+                                <h6 class="fw-lighter">Shop Now!</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center justify-content-end">
+                        <button type="button" class="btn btn-primary me-3 rounded-0 px-4">View ALL</button>
+                    </div>
+                </div>
+                <hr class="m-0 division">
+                <div class="row product_body_sec row-col-auto">
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/phonestand.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-1 display_product">
+                        <a href="#" class="item_link">
+                            <div class="card  border-0">
+                                <div class="img_sec">
+                                    <img src="./img/deals_of_the_day/monitor.webp" class="card-img-top"
+                                        alt="product img">
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                    <h6> Monitors</h6>
+                                    <span class="highlight_text">From ₹3999</span>
+                                    <h6 class="mt-1 mb-0">Lenovo</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- OwlCarousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+<script src="./js/app.js"></script>
+
+
+</html>
