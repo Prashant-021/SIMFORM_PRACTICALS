@@ -596,16 +596,14 @@ p{
     }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 1024px) and (min-width: 992px) {
     .logo_sec{
         width: 10%;
     }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width:1200px) and (min-width: 1024px) {
     .logo_sec{
-        width: 10%;
+        width: 8% !important;
     }
 }
