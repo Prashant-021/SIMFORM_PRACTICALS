@@ -1,4 +1,4 @@
-Simform Practials
+Simform Practicals
 
 HTML AND CSS Practical
 
