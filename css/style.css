@@ -600,6 +600,12 @@ p{
     .logo_sec{
         width: 10%;
     }
+    .content_sec .catalog {
+        width: 75%;
+    }
+    .content_sec .add_sec {
+        width: 23%;
+    }
 }
 
 @media only screen and (max-width:1200px) and (min-width: 1024px) {
