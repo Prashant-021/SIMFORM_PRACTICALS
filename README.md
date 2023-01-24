@@ -6,4 +6,4 @@ Demo Link
 
 With Bootstrap :- https://creative-cucurucho-564b4b.netlify.app/
 
-With Media Query:- https://prashant-021.github.io/SIMFORM_PRACTICALS/Media_query/index.html
+With Media Query:- https://deploy-preview-3--darling-seahorse-6b1394.netlify.app
