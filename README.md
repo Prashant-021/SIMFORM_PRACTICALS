@@ -1,7 +1,5 @@
-JavaScript Practicals
+# JavaScript Practicals
 
-Scientific Calculator Practical
+## Scientific Calculator Practical
 
-Demo Link
-
-https://prashant-021.github.io/SIMFORM_PRACTICALS/
+Demo Link :- https://prashant-021.github.io/SIMFORM_PRACTICALS/
