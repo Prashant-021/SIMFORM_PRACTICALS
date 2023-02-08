@@ -121,49 +121,6 @@ function clear_display() {
     }
 }
 
-function sin_cos_tan_trigo(func_name) {
-    if (deg_rad) {
-        input_value.value = (func_name((Math.PI / 180) * Number(input_value.value))).toFixed(5);
-    }
-    else {
-        input_value.value = (func_name(input_value.value)).toFixed(5);
-    }
-}
-
-function csc_sec_cot_trigo(func_name) {
-    if (deg_rad) {
-        input_value.value = 1 / (func_name(Math.PI / 180 * input_value.value)).toFixed(5);
-    }
-    else {
-        input_value.value = 1 / func_name(display.value).toFixed(5);
-    }
-}
-
-function sin_cos_tan_inv_trigo(func_name) {
-    if (deg_rad) {
-        input_value.value = (180 / Math.PI * func_name(input_value.value)).toFixed(5);
-    }
-    else {
-        input_value.value = func_name(input_value.value).toFixed(5);
-    }
-}
-
-function csc_sec_cot_inv_trigo(func_name) {
-    if (deg_rad) {
-        input_value.value = (180 / Math.PI * (func_name(1 / input_value.value))).toFixed(5);
-    }
-    else {
-        input_value.value = 1 / func_name(input_value.value).toFixed(5);
-    }
-}
-
-function hyp_sin_cos_tan_func(func_name){
-    input_value.value = (func_name(input_value.value)).toFixed(5);
-}
-function hyp_csc_sec_cot_func(func_name){
-    input_value.value = (1/func_name(input_value.value)).toFixed(5);
-}
-
 function enable_mc_mr() {
     document.getElementById('mc').disabled = false;
     document.getElementById('mr').disabled = false;
@@ -360,6 +317,151 @@ function enter_value(entered_value) {
             change_trigo_func();
             break;
         }
+        case 'sin':{
+            if (deg_rad) {
+                input_value.value = (Math.sin((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.sin(input_value.value)).toFixed(5);
+            }
+        }
+        case 'cos':{
+            if (deg_rad) {
+                input_value.value = (Math.cos((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.cos(input_value.value)).toFixed(5);
+            }
+        }
+        case 'tan':{
+            if (deg_rad) {
+                input_value.value = (Math.tan((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.tan(input_value.value)).toFixed(5);
+            }
+        }
+        case 'cosec': {
+            if (deg_rad) {
+                input_value.value = 1 / (Math.sin(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.sin(display.value).toFixed(5);
+            }
+        }
+        case 'sec':{
+            if (deg_rad) {
+                input_value.value = 1 / (Math.cos(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.cos(display.value).toFixed(5);
+            }
+        }
+        case 'cot': {
+            if (deg_rad) {
+                input_value.value = 1 / (Math.tan(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.tan(display.value).toFixed(5);
+            }
+        }
+        case 'sinh':{
+            input_value.value = (Math.sinh(input_value.value));
+            break;
+        }
+        case 'cosh':{
+            input_value.value = (Math.cosh(input_value.value));
+            break;
+        }
+        case 'tanh':{
+            input_value.value = (Math.tanh(input_value.value));
+            break;
+        }
+        case 'cosech':{
+            input_value.value = (1/Math.sinh(input_value.value)).toFixed(5);
+            break;
+        }
+        case 'sech':{
+            input_value.value = (1/Math.cosh(input_value.value)).toFixed(5);
+            break;
+        }
+        case 'coth':{
+            input_value.value = (1/Math.tanh(input_value.value)).toFixed(5);
+            break;
+        }
+        case 'asin':{
+            if (deg_rad) {
+                input_value.value = (Math.asin((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.asin(input_value.value)).toFixed(5);
+            }
+        }
+        case 'acos':{
+            if (deg_rad) {
+                input_value.value = (Math.acos((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.acos(input_value.value)).toFixed(5);
+            }
+        }
+        case 'atan':{
+            if (deg_rad) {
+                input_value.value = (Math.atan((Math.PI / 180) * Number(input_value.value))).toFixed(5);
+            }
+            else {
+                input_value.value = (Math.atan(input_value.value)).toFixed(5);
+            }
+        }
+        case 'acosec': {
+            if (deg_rad) {
+                input_value.value = 1 / (Math.asin(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.asin(display.value).toFixed(5);
+            }
+        }
+        case 'asec':{
+            if (deg_rad) {
+                input_value.value = 1 / (Math.acos(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.acos(display.value).toFixed(5);
+            }
+        }
+        case 'acot': {
+            if (deg_rad) {
+                input_value.value = 1 / (Math.atan(Math.PI / 180 * input_value.value)).toFixed(5);
+            }
+            else {
+                input_value.value = 1 / Math.atan(display.value).toFixed(5);
+            }
+        }
+        case 'asinh':{
+            input_value.value = (Math.asinh(input_value.value));
+            break;
+        }
+        case 'acosh':{
+            input_value.value = (Math.acosh(input_value.value));
+            break;
+        }
+        case 'atanh':{
+            input_value.value = (Math.atanh(input_value.value));
+            break;
+        }
+        case 'acosech':{
+            input_value.value = (1/Math.asinh(input_value.value)).toFixed(5);
+            break;
+        }
+        case 'asech':{
+            input_value.value = (1/Math.acosh(input_value.value)).toFixed(5);
+            break;
+        }
+        case 'acoth':{
+            input_value.value = (1/Math.atanh(input_value.value)).toFixed(5);
+            break;
+        }
+
         default: {
             input_value.value += entered_value;
         }
