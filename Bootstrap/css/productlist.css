@@ -1,0 +1,30 @@
+.product_body_sec .img_sec{
+    height: 130px;
+    width : 100%;
+    padding: 1rem;
+
+}
+.product_body_sec  .item_link{
+    text-decoration: none;
+    color: black;
+}
+.product_body_sec .img_sec img{
+    max-height: 100%;
+    max-width : 100%;
+    object-fit: contain;
+}
+
+.product_body_sec .highlight_text{
+    color: #388e3c;
+}
+
+.product_body_sec .display_product{
+    width: 200px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .product_body_sec .display_product{
+        width: 180px;
+    }
+}
