@@ -27,7 +27,7 @@ function factorial() {
 }
 
 function only_val(val) {
-    if (String(input_value.value).charAt(input_value.value.length - 1) == '-' || String(input_value.value).charAt(input_value.value.length - 1) == '+' || String(input_value.value).charAt(input_value.value.length - 1) == '/' || input_value.value == "") {
+    if (String(input_value.value).charAt(input_value.value.length - 1) == '-' || String(input_value.value).charAt(input_value.value.length - 1) == '+' || String(input_value.value).charAt(input_value.value.length - 1) == '/' || input_value.value == "" ||  String(input_value.value).charAt(input_value.value.length - 1) == '(') {
         input_value.value += val;
     }
     else {
