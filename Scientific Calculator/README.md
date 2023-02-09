@@ -2,4 +2,4 @@
 
 ## Scientific Calculator Practical
 
-Demo Link :- https://inspiring-flan-8f6142.netlify.app/
+Demo Link :- https://quiet-manatee-45801e.netlify.app/
