@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>DShop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- googlefont api -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
+
+    <!-- owl-carousel css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- ========== Start Navbar ========== -->
+    <div class="container header ">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid my-2">
+                <a class="navbar-brand d-lg-none" href="#"><img src="./img/Group 39.svg" class="img-fluid" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+                        <li>
+                            <a class="nav-link active pages" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active pages" aria-current="page"
+                                onclick="scrolltoSection(productPage)">Product</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active pages" aria-current="page"
+                                onclick="scrolltoSection(shopSection)">Shop</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active pages" aria-current="page"
+                                onclick="scrolltoSection(aboutPage)">About Us</a>
+                        </li>
+                        <li class="nav-item d-md-flex d-none mb-auto ms-auto">
+                            <a class="navbar-brand d-none d-lg-block" href="#"><img src="./img/Group 39.svg" alt=""></a>
+                        </li>
+                        <li class="nav-item d-flex ms-lg-auto">
+                            <form class="d-sm-flex align-items-center">
+                                <div class="searchbox d-flex border-0 shadow p-1 bg-white rounded-3 ">
+                                    <img src="./img/search_small.svg" class="p-1" alt="">
+                                    <input class="form-control me-2 border-0" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <img src="./img/Vector.svg" class="p-1 border-start border-dark border-2" alt="">
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <button id="back-to-top-btn">Back to top</button>
+
+    <!-- ========== End Navbar ========== -->
+    <div class="container-fluid ">
+        <div class="row pb-5">
+            <div class="col homepage">
+                <!-- ========== Start homeSection ========== -->
+                <div class="row justify-content-center">
+                    <div class="col-10  mt-4">
+                        <div id="carouselExampleControls1" data-interval="false" class="carousel carousel-dark slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="textarea">
+                                                <h1>Get 50% OFFER NOW!!</h1>
+                                                <P>One year pieces to poeces guarantee, if you
+                                                    are not if you are
+                                                    not
+                                                    satisfied 100% money back guarantee.</P>
+                                                <button class="btn" onclick="scrolltoSection(productPage)">Explore
+                                                    More!</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 ">
+                                            <img src="./img/men.svg" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="Page">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="textarea">
+                                                    <h1>Get 50% OFFER NOW!!</h1>
+                                                    <P>One year pieces to poeces guarantee, if you
+                                                        are not if you are
+                                                        not
+                                                        satisfied 100% money back guarantee.</P>
+                                                    <button class="btn" onclick="scrolltoSection(productPage)">Explore
+                                                        More!</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 ">
+                                                <img src="./img/men.svg" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="Page">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="textarea">
+                                                    <h1>Get 50% OFFER NOW!!</h1>
+                                                    <P>One year pieces to poeces guarantee, if you
+                                                        are not if you are
+                                                        not
+                                                        satisfied 100% money back guarantee.</P>
+                                                    <button class="btn" onclick="scrolltoSection(productPage)">Explore
+                                                        More!</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 ">
+                                                <img src="./img/men.svg" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev my-indicator-left" style="left: -10%;" type="button"
+                                data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next my-indicator-right" style="right: -10%;" type="button"
+                                data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ========== End homeSection ========== -->
+            </div>
+        </div>
+    </div> -->
+    <!-- ========== Start productSection ========== -->
+    <div class="row pt-3 pb-5">
+        <div class="col secondpage" id="productPage">
+            <div class="row">
+                <div class="col-md-4  p-md-2 d-flex justify-content-center">
+                    <div class="card my-card">
+                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body my-card-body">
+                            <h5 class="card-title">Masks</h5>
+                            <p class="card-text">$1999 - <s>$2999</s></p>
+                            <div class="rangeinfo">
+                                <label for="customRange1" class="form-label">sold:<b>351</b></label>
+                                <label for="customRange1" class="form-label">Avaliable:<b>500</b></label>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 65%; background:#FF6B00;"
+                                    aria-valuenow="351" aria-valuemin="0" aria-valuemax="500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 p-0 m-0">
+                    <div class="sec_part_head d-flex align-items-center justify-content-between">
+                        <div class="second_heading d-flex ">
+                            <img src="./img/Group 12.svg" class="img-fluid" alt="">
+                            <h5 class="p-2 mt-2"><b>FEATURED</b></h5>
+                        </div>
+                    </div>
+                    <div class="sec_part_body p-2">
+
+                        <div class="row">
+                            <div class="owl-carousel owl-theme">
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card my-card3">
+                                        <img src="./img/image 3.svg" class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <div class="card-box">
+                                                <h5 class="card-title">CASUAL SHIRT</h5>
+                                            </div>
+                                            <p class="card-text">$1999 - <s>$2999</s></p>
+                                            <button class="btn btn-sm rounded secondpage_btn">ADD TO
+                                                CART</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <button onclick="scrolltoSection(shopSection)">Continue Shopping !!!!</button>
+                </div>
+            </div>
+        </div>
+        <!-- ========== End productSection ========== -->
+
+        <!-- ========== Start shopSection ========== -->
+        <div class="row pt-3 pb-5" id="shopSection">
+            <div class="col thirdpage">
+                <div class="container">
+                    <div class="row pt-3 pb-4">
+                        <div class="col-12 col-sm-4 d-flex justify-content-center">
+                            <h1 class="third_heading">SHOP</h1>
+                        </div>
+                        <div class="col-12 col-sm-8 mb-3 mb-md-0 d-flex align-items-center justify-content-end">
+                            <p class="m-0 mx-2">Showing 1-12 of 36 results</p>
+                            <div class="dropdown">
+                                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Default Sorting
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">High to Low</a></li>
+                                    <li><a class="dropdown-item" href="#">Low to High</a></li>
+                                    <li><a class="dropdown-item" href="#">By Price</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-3 pb-3">
+                        <div class="col">
+                            <div class="container">
+                                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-5">
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card my-card2">
+                                            <img src="./img/Rectangle7.svg" class="card-img1 " alt="...">
+                                            <div class="card-body my-card-body2">
+                                                <div class="card-box">
+                                                    <h5 class="card-title">CASUAL SHIRT</h5>
+                                                    <span class="material-icons">
+                                                        favorite_border
+                                                    </span>
+                                                </div>
+                                                <p class="card-text">$1999 - <s>$2999</s></p>
+                                                <div class="colorselect">
+                                                    <ul>
+                                                        <li class="color-item" id="black"></li>
+                                                        <li class="color-item" id="Feijoa"></li>
+                                                        <li class="color-item" id="Blue"></li>
+                                                        <li class="color-item" id="Green"></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm  btn-dark">ADD TO CART</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== End shopSection ========== -->
+        <!-- ========== Start aboutSection ========== -->
+        <div class="row justify-content-center pb-3 pt-5 fourthpage" id="aboutPage">
+            <div class="col-md-5">
+                <h3 class="pb-3">ABOUT DSHOP</h3>
+                <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to Dshop, where you'll find everything
+                    you need to live your best life. From fashion and beauty to home decor and electronics, we've got
+                    you
+                    covered. Our carefully curated selection of products is designed to help you save time and money, so
+                    you
+                    can focus on the things that matter most. Browse our collections and discover the perfect items for
+                    you.<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;Explore our wide range of categories to find exactly what you're looking
+                    for.
+                    Whether you need a new outfit for a night out or a kitchen gadget to make meal prep a breeze, we've
+                    got
+                    it all. Shop by category and discover new and exciting products.<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;At Dshop, we're committed to providing the best customer
+                    service in the industry. If you have any questions or concerns, our friendly and knowledgeable
+                    support
+                    team is here to help. Contact us anytime and we'll be happy to assist you.</P>
+            </div>
+            <div class="col-md-5">
+                <div class="image_sec">
+                    <img src="./img/Frame 1.svg" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- ========== End aboutSection ========== -->
+        <!-- ========== Start footerSection ========== -->
+        <div class="row justify-content-center pt-5 ">
+            <div class="col-10 border-top border-dark border-4 Footer">
+                <div class="container py-5">
+                    <div class="row p-2">
+                        <div class="col-md-4">
+                            <img src="./img/Group 39.svg" alt="">
+                        </div>
+                        <div class="col-md-2">
+                            <h5 class="mb-3">COMPANY</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#">Delivery</a></li>
+                                <li class="mb-2"><a href="#">Collection</a></li>
+                                <li class="mb-2"><a href="#">Return</a></li>
+                                <li class="mb-2"><a href="#">Account</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 class="mb-3">Follow</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="/docs/5.0/getting-started/">Facebook</a></li>
+                                <li class="mb-2"><a href="/docs/5.0/examples/starter-template/">Instagram</a></li>
+                                <li class="mb-2"><a href="/docs/5.0/getting-started/webpack/">Pintrest</a></li>
+                                <li class="mb-2"><a href="/docs/5.0/getting-started/parcel/">Youtube</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 d-flex flex-column justify-content-between">
+                            <h5>Get 15 % off on your first order
+                                By subscribeing</h5>
+                            <div class="emaildiv d-flex border-bottom border-dark border-1">
+                                <input type="email" class="email_input border border-white border-1" id="email"
+                                    placeholder="Email">
+                                <button id="email_btn">
+                                    <span class="material-icons">
+                                        arrow_right_alt
+                                    </span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== End footerSection ========== -->
+
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- owl-carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom JS -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
