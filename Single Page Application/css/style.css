@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
 body {
     background: #FFFFFF;
+}
+
+.row {
+    --bs-gutter-x: 0;
 }
 
 .homepage {
@@ -14,9 +17,7 @@ body {
     padding-bottom: 10%;
     z-index: 0;
 }
-
-/* navbar */
-
+/***** Navbar *****/
 .header {
     background-color: rgb(248, 253, 243);
     box-shadow: rgba(0, 0, 0, 0.15) 0px -50px 36px -28px inset;
@@ -63,8 +64,8 @@ body {
     background-color: #444;
 }
 
-/* firstpage */
-
+/***** End Navbar *****/
+/***** HomeSection *****/
 .textArea {
     height: 100%;
     display: flex;
@@ -92,8 +93,8 @@ body {
     color: white;
 }
 
-/* secondpart */
-
+/***** End HomeSection *****/
+/***** productSection *****/
 .secondPage {
     padding: 4rem 0;
     background: #f4f9ef;
@@ -167,16 +168,15 @@ body {
     box-shadow: 0px 8px 24px rgb(0 0 0 / 15%);
 }
 
-
-/* thirdPage */
-
+/***** End productSection *****/
+/***** shopSection *****/
 .thirdPage .thirdHeading,
 .secondPage .secondHeading {
     font-family: 'Baumans', cursive;
     font-size: 50px;
 }
 
-.thirdPage .my-card2 {
+.thirdPage .shopCard {
     width: auto;
     display: flex;
     background: #ffffff;
@@ -188,28 +188,28 @@ body {
     margin-top: -15%;
 }
 
-.thirdPage .my-card-body2 {
+.thirdPage .shopCardBody {
     align-items: center;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
 }
 
-.thirdPage .my-card2:hover {
+.thirdPage .shopCard:hover {
     background: #FF6B00;
 }
 
-.thirdPage .card-box {
+.thirdPage .cardBox {
     display: flex;
     width: 90%;
     justify-content: space-between;
 }
 
-.thirdPage .my-card-body2 .colorselect {
+.thirdPage .shopCardBody .colorSelect {
     width: 100%;
 }
 
-.thirdPage .my-card-body2 ul {
+.thirdPage .shopCardBody ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -218,26 +218,26 @@ body {
     padding: 0;
 }
 
-.thirdPage .my-card-body2 ul li {
+.thirdPage .shopCardBody ul li {
     width: 24px;
     height: 24px;
     cursor: pointer;
     border-radius: 50%;
 }
 
-.thirdPage .my-card-body2 ul #black {
+.thirdPage .shopCardBody ul #black {
     background-color: #1F2229;
 }
 
-.thirdPage .my-card-body2 ul #Feijoa {
+.thirdPage .shopCardBody ul #Feijoa {
     background-color: #B0DA87;
 }
 
-.thirdPage .my-card-body2 ul #Blue {
+.thirdPage .shopCardBody ul #Blue {
     background-color: #2D5FD5;
 }
 
-.thirdPage .my-card-body2 ul #Green {
+.thirdPage .shopCardBody ul #Green {
     background-color: #7FFF43;
 }
 
@@ -245,35 +245,32 @@ body {
     --bs-gutter-x: 1.5rem;
 }
 
-
-
-/* fourthpage */
-.fourthpage{
+/***** End shopSection *****/
+/***** aboutSection *****/
+.fourthPage {
     background: #f4f9ef;
 }
-.fourthpage p {
+
+.fourthPage p {
     text-align: justify;
-    
+
 }
 
-
-/* Footer */
+/***** End aboutSection *****/
+/***** footerSection *****/
 .Footer li a {
     text-decoration: none;
     color: #323335;
 }
 
-.Footer .email_input {
+.Footer .emailInput {
     height: 3rem;
     width: 87%;
 }
 
-.Footer #email_btn {
+.Footer #emailBtn {
     border: none;
     background: transparent;
 }
 
-
-.row {
-    --bs-gutter-x: 0;
-}
+/***** End footerSection *****/
