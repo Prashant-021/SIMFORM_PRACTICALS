@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 body {
     background: #FFFFFF;
 }
@@ -9,33 +12,37 @@ body {
     width: 100%;
     padding-top: 10%;
     padding-bottom: 10%;
+    z-index: 0;
 }
 
 /* navbar */
 
+.header {
+    background-color: rgb(248, 253, 243);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -50px 36px -28px inset;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
 
 .header ul {
     margin-right: 0;
     text-transform: uppercase;
 }
 
-.header .navbar {
-    background: transparent;
-}
 
 .header .navbar-nav {
     width: 100%;
 }
 
-.pages {
-    color: #000000;
+.nav-link ,.footerLogo{
+    cursor: pointer;
 }
 
-.pages:hover {
-    color: #FF6B00;
+.nav-link:hover {
+    color: #FF6B00 !important;
 }
 
-#back-to-top-btn {
+#backToTopBtn {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -51,23 +58,24 @@ body {
     border-radius: 4px;
 }
 
-#back-to-top-btn:hover {
+#backToTopBtn:hover {
     background-color: #444;
 }
 
 /* firstpage */
 
-.textarea {
+.textArea {
     height: 100%;
     display: flex;
     margin-left: 10%;
-    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
-    /* align-content: flex-start;*/
 }
 
-.textarea .btn,.scrollNext.btn {
+.textArea .btn,
+.scrollNext.btn,
+.scrollDown .btn,
+#backToTopBtn {
     background: #FF6B00;
     color: #ffffff;
     border: none;
@@ -76,75 +84,68 @@ body {
     font-family: 'Bebas Neue';
 }
 
-.textarea .btn:hover {
+.textArea .btn:hover,
+.scrollDown .btn:hover,
+#backToTopBtn:hover {
     background: black;
     color: white;
 }
 
-#carouselExampleControls .my-indicator-left {
-    left: -140px !important;
-}
-
-#carouselExampleControls .my-indicator-right {
-    right: -10% !important;
-}
-
 /* secondpart */
 
-.secondpage {
+.secondPage {
     padding: 4rem 0;
 }
 
-.secondpage .my-card {
+.secondPage .my-card {
     border-radius: 30px;
     box-shadow: 0px 8px 24px rgb(0 0 0 / 15%);
 }
 
-.secondpage .my-card-body {
+.secondPage .my-card-body {
     text-align: center;
 }
 
-.secondpage .my-card-body .rangeinfo {
+.secondPage .my-card-body .rangeinfo {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.secondpage .my-card-body #my-range {
+.secondPage .my-card-body #my-range {
     background-color: #FF6B00;
     width: 100%;
 }
 
-.secondpage .sec_part_body {
+.secondPage .sec_part_body {
     background: #333333;
     color: #ffffff;
     height: 92%;
     padding: 1rem;
-    margin-right: -12px;
     border-radius: 30px 0px 0px 30px;
 }
 
-.secondpage .my-card3 {
+.secondPage .featuredCard {
     background: transparent;
     text-align: center;
 }
 
-.secondpage .my-card3 img {
+.secondPage .featuredCard img {
     border-radius: 20px;
 }
 
-.secondpage .my-card3 .secondpage_btn,
+.secondPage .featuredCard .secondPage_btn,
 .carousel2_btn .prev,
 .carousel2_btn .next {
     background: #FF6B00;
     color: #ffffff;
 }
 
-.secondpage .item {
+.secondPage .item {
     padding: 10px;
 }
 
-.secondpage .owl-nav {
+.secondPage .owl-nav {
     height: 3rem;
     z-index: 1;
     width: 18%;
@@ -155,8 +156,8 @@ body {
     right: 5px;
 }
 
-.secondpage .owl-nav .owl-prev,
-.secondpage .owl-nav .owl-next {
+.secondPage .owl-nav .owl-prev,
+.secondPage .owl-nav .owl-next {
     background: #FF6B00 !important;
     width: 40%;
     height: 100%;
@@ -165,48 +166,48 @@ body {
 }
 
 
-/* thirdpage */
+/* thirdPage */
 
-.thirdpage .third_heading {
+.thirdPage .thirdHeading,
+.secondPage .secondHeading {
     font-family: 'Baumans', cursive;
     font-size: 50px;
 }
 
-.thirdpage .my-card2 {
+.thirdPage .my-card2 {
     width: auto;
     display: flex;
     background: #ffffff;
     border-radius: 27px;
-
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.thirdpage .card-img1 {
+.thirdPage .card-img1 {
     margin-top: -15%;
 }
 
-.thirdpage .my-card-body2 {
+.thirdPage .my-card-body2 {
     align-items: center;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
 }
 
-.thirdpage .my-card2:hover {
+.thirdPage .my-card2:hover {
     background: #FF6B00;
 }
 
-.thirdpage .card-box {
+.thirdPage .card-box {
     display: flex;
     width: 90%;
     justify-content: space-between;
 }
 
-.thirdpage .my-card-body2 .colorselect {
+.thirdPage .my-card-body2 .colorselect {
     width: 100%;
 }
 
-.thirdpage .my-card-body2 ul {
+.thirdPage .my-card-body2 ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -215,30 +216,30 @@ body {
     padding: 0;
 }
 
-.thirdpage .my-card-body2 ul li {
+.thirdPage .my-card-body2 ul li {
     width: 24px;
     height: 24px;
     cursor: pointer;
     border-radius: 50%;
 }
 
-.thirdpage .my-card-body2 ul #black {
+.thirdPage .my-card-body2 ul #black {
     background-color: #1F2229;
 }
 
-.thirdpage .my-card-body2 ul #Feijoa {
+.thirdPage .my-card-body2 ul #Feijoa {
     background-color: #B0DA87;
 }
 
-.thirdpage .my-card-body2 ul #Blue {
+.thirdPage .my-card-body2 ul #Blue {
     background-color: #2D5FD5;
 }
 
-.thirdpage .my-card-body2 ul #Green {
+.thirdPage .my-card-body2 ul #Green {
     background-color: #7FFF43;
 }
 
-.thirdpage .row {
+.thirdPage .row {
     --bs-gutter-x: 1.5rem;
 }
 
