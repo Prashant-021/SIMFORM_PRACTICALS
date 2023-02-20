@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    background: #FFFFFF;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.homepage {
+    background: url("../img/bgimage.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    z-index: 0;
+    height: 100vh;
+}
+/***** Navbar *****/
+.header {
+    background-color: rgb(248, 253, 243);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -50px 36px -28px inset;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+
+.header ul {
+    margin-right: 0;
+    text-transform: uppercase;
+}
+
+
+.header .navbar-nav {
+    width: 100%;
+}
+
+.nav-link,
+.footerLogo {
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #FF6B00 !important;
+}
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#backToTopBtn:hover {
+    background-color: #444;
+}
+
+/***** End Navbar *****/
+/***** HomeSection *****/
+.textArea {
+    height: 100%;
+    display: flex;
+    margin-left: 10%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textArea .btn,
+.scrollNext.btn,
+.scrollDown .btn,
+#backToTopBtn {
+    background: #FF6B00;
+    color: #ffffff;
+    border: none;
+    width: fit-content;
+    border-radius: 10px;
+    font-family: 'Bebas Neue';
+}
+
+.textArea .btn:hover,
+.scrollDown .btn:hover,
+#backToTopBtn:hover {
+    background: black;
+    color: white;
+}
+
+/***** End HomeSection *****/
+/***** productSection *****/
+.secondPage {
+    padding: 4rem 0;
+    background: #f4f9ef;
+}
+
+.secondPage .my-card {
+    border-radius: 30px;
+    box-shadow: 0px 8px 24px rgb(0 0 0 / 15%);
+}
+
+.secondPage .my-card-body {
+    text-align: center;
+}
+
+.secondPage .my-card-body .rangeinfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondPage .my-card-body #my-range {
+    background-color: #FF6B00;
+    width: 100%;
+}
+
+.secondPage .sec_part_body {
+    background: #333333;
+    color: #ffffff;
+    height: 92%;
+    padding: 1rem;
+    border-radius: 30px 0px 0px 30px;
+}
+
+.secondPage .featuredCard {
+    background: transparent;
+    text-align: center;
+}
+
+.secondPage .featuredCard img {
+    border-radius: 20px;
+}
+
+.secondPage .featuredCard .secondPage_btn,
+.carousel2_btn .prev,
+.carousel2_btn .next {
+    background: #FF6B00;
+    color: #ffffff;
+}
+
+.secondPage .item {
+    padding: 10px;
+}
+
+.secondPage .owl-nav {
+    height: 3rem;
+    z-index: 1;
+    width: 18%;
+    display: flex;
+    margin-top: 0 !important;
+    position: absolute;
+    top: -64px;
+    right: 5px;
+}
+
+.secondPage .owl-nav .owl-prev,
+.secondPage .owl-nav .owl-next {
+    background: #FF6B00 !important;
+    width: 40%;
+    height: 100%;
+    font-size: xx-large !important;
+    box-shadow: 0px 8px 24px rgb(0 0 0 / 15%);
+}
+
+/***** End productSection *****/
+/***** shopSection *****/
+.thirdPage .thirdHeading,
+.secondPage .secondHeading {
+    font-family: 'Baumans', cursive;
+    font-size: 50px;
+}
+
+.thirdPage .shopCard {
+    width: auto;
+    display: flex;
+    background: #ffffff;
+    border-radius: 27px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.thirdPage .card-img1 {
+    margin-top: -15%;
+}
+
+.thirdPage .shopCardBody {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.thirdPage .shopCard:hover {
+    background: #FF6B00;
+}
+
+.thirdPage .cardBox {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.thirdPage .shopCardBody .colorSelect {
+    width: 100%;
+}
+
+.thirdPage .shopCardBody ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    width: 50%;
+    padding: 0;
+}
+
+.thirdPage .shopCardBody ul li {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.thirdPage .shopCardBody ul #black {
+    background-color: #1F2229;
+}
+
+.thirdPage .shopCardBody ul #Feijoa {
+    background-color: #B0DA87;
+}
+
+.thirdPage .shopCardBody ul #Blue {
+    background-color: #2D5FD5;
+}
+
+.thirdPage .shopCardBody ul #Green {
+    background-color: #7FFF43;
+}
+
+.thirdPage .row {
+    --bs-gutter-x: 1.5rem;
+}
+
+/***** End shopSection *****/
+/***** aboutSection *****/
+.fourthPage {
+    background: #f4f9ef;
+}
+
+.fourthPage p {
+    text-align: justify;
+
+}
+
+/***** End aboutSection *****/
+/***** footerSection *****/
+.Footer li a {
+    text-decoration: none;
+    color: #323335;
+}
+
+.Footer .emailInput {
+    height: 3rem;
+    width: 87%;
+}
+
+.Footer #emailBtn {
+    border: none;
+    background: transparent;
+}
+
+/***** End footerSection *****/
