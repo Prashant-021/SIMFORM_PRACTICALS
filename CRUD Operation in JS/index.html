@@ -40,30 +40,29 @@
                         <div class="row mb-3">
                             <label for="inputName" class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputName" required>
+                                <input type="text" class="form-control" id="inputName">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                    required></textarea>
+                                <textarea class="form-control" id="inputDescription" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" id="inputName" required>
+                                <input type="number" class="form-control" id="inputPrice">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputImage" class="col-sm-3 col-form-label" required>Image</label>
+                            <label for="inputImage" class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control" id="inputName" required>
+                                <input type="file" class="form-control" id="inputImage"
+                                    accept="image/x-png,image/gif,image/jpeg">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" form="addProductForm"
-                            value="Submit">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Add Product</button>
                     </form>
                 </div>
             </div>
@@ -73,10 +72,10 @@
             <!-- ========== End ViewProductSection ========== -->
             <div class="col-12 col-lg-6 viewProductSection mt-4 mt-lg-0 py-2 table-responsive">
                 <div class="headingSec">
-                    <h3>Product Details</h3>
+                    <h3>Product List</h3>
                 </div>
                 <div class="bodySec">
-                    <table class="table table-hover">
+                    <table class="table table-responsive table-hover ">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
@@ -84,30 +83,11 @@
                                 <th scope="col">Description</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Image</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>
-                                <td>@twitter</td>
-                            </tr>
+                        <tbody id="productData" class="overflow-scroll">
+
                         </tbody>
                     </table>
                 </div>
@@ -115,6 +95,49 @@
         </div>
 
 
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="updateProduct" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="updateProduct">Product Information</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addProductForm">
+                            <div class="row mb-3">
+                                <label for="inputName" class="col-sm-3 col-form-label">Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="updateName">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="updateDescription" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="updatePrice">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputImage" class="col-sm-3 col-form-label">Image</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" id="updateImage"
+                                        accept="image/x-png,image/gif,image/jpeg">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="updateBtn" onclick="updateData(index)">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->

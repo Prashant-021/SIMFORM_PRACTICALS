@@ -12,11 +12,28 @@ body {
 /* Hide the spin button in priceInput */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 
-.btn:hover {
+.addProductSec .btn:hover {
     background: black;
+}
+
+.viewProductSection .tbody {
+    height: 100%;
+}
+
+.delBtn,
+.editBtn {
+    opacity: 0;
+}
+
+tr:hover .delBtn {
+    opacity: 1;
+}
+
+tr:hover .editBtn {
+    opacity: 1;
 }
