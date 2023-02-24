@@ -1,12 +1,29 @@
 body {
     background: aliceblue;
 }
+.searchbar{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
 
+}
+.searchbar input{
+    border:none;
+    outline: none;
+    margin-left: 10px;
+    width: 90%;
+}
 .addProductSec,
 .viewProductSection {
     background: rgb(255, 255, 255);
     border: 1px solid rgb(198, 198, 198);
     border-radius: 5px;
+}
+
+.viewProductSection {
+    height: 70vh;
 }
 
 /* Hide the spin button in priceInput */
@@ -17,23 +34,28 @@ input::-webkit-inner-spin-button {
 }
 
 
+
 .addProductSec .btn:hover {
     background: black;
 }
 
 .viewProductSection .tbody {
     height: 100%;
+    overflow-y: scroll;
 }
 
-.delBtn,
-.editBtn {
-    opacity: 0;
+.delBtn{
+    /* opacity: 0; */
+    display: none;
 }
 
 tr:hover .delBtn {
-    opacity: 1;
+    display: inline-block;
 }
 
-tr:hover .editBtn {
-    opacity: 1;
+
+#viewImage{
+    height: 30%;
+    display: flex;
+    justify-content: center;
 }

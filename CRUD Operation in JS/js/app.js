@@ -1,99 +1,128 @@
 const productAdded = document.getElementById('submitBtn');
 let productDetails = [];
 
-productAdded.onclick = () => {
-    addProduct();
-}
-
+const inputName = document.getElementById('inputName');
+const inputDescription = document.getElementById('inputDescription');
+const inputPrice = document.getElementById('inputPrice');
+const inputImage = document.getElementById('inputImage');
 
 if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
 }
 
 
+const addProduct = () => {
+    const pName = inputName.value;
+    const pDescription = inputDescription.value;
+    const pPrice = inputPrice.value;
+    const pImage = inputImage;
 
-async function addProduct() {
-
-    const pName = document.getElementById('inputName').value;
-    const pDescription = document.getElementById('inputDescription').value;
-    const pPrice = document.getElementById('inputPrice').value;
-    const pImage = document.getElementById('inputImage');
-
+    if (!pName) {
+        alert('Please enter product name');
+        return;
+    }
+    if (!pDescription) {
+        alert('Please enter product description');
+        return;
+    }
+    if (!pPrice) {
+        alert('Please enter product price');
+        return;
+    }
+    if (!pImage.value) {
+        alert('Please select image');
+        return;
+    }
     const reader = new FileReader();
-        reader.readAsDataURL(pImage.files[0]);
 
+    reader.readAsDataURL(pImage.files[0]);
     reader.addEventListener('load', () => {
-        if (pName == "" || pDescription == "" || pPrice == "" || pImage == "") {
-            alert('Please enter value for product');
-        } else {
-            productDetails.push(
-                {
-                    pName: pName,
-                    pDescription: pDescription,
-                    pPrice: pPrice,
-                    pImage: reader.result
-                }
-            );
+        productDetails.push(
+            {
+                pName: pName,
+                pDescription: pDescription,
+                pPrice: pPrice,
+                pImage: reader.result
+            }
+        );
 
-            localStorage.setItem('addProduct', JSON.stringify(productDetails));
-            alert(`Product Added`);
-        }
+        localStorage.setItem('addProduct', JSON.stringify(productDetails));
+        inputName.value = "";
+        inputDescription.value = "";
+        inputPrice.value = "";
+        inputImage.value = "";
+        getProduct();
     })
-    window.location.reload();
+    document.querySelector('#close').click();
 }
 
-
 function deleteProduct(index) {
-    productDetails.splice(index, 1);
-    localStorage.setItem('addProduct', JSON.stringify(productDetails));
-    getProduct();
+    if (confirm('Are you sure you want to delete?')) {
+        productDetails.splice(index, 1);
+        localStorage.setItem('addProduct', JSON.stringify(productDetails));
+        getProduct();
+    } else {
+        return;
+    }
 }
 
 function productInfo(index) {
     document.getElementById('updateName').value = productDetails[index].pName;
     document.getElementById('updateDescription').value = productDetails[index].pDescription;
     document.getElementById('updatePrice').value = productDetails[index].pPrice;
-
+    document.getElementById('viewImage').innerHTML = `
+    <img src="${productDetails[index].pImage}" class="img img-fluid"></img>`;
     document.getElementById('updateBtn').onclick = () => {
         updateData(index);
     }
 }
-
 function updateData(index) {
     const pName = document.getElementById('updateName').value;
     const pDescription = document.getElementById('updateDescription').value;
     const pPrice = document.getElementById('updatePrice').value;
-    if (pName == "" || pDescription == "" || pPrice == "") {
+    const pImage = document.getElementById('updateImage');
+    if (pName === "" || pDescription === "" || pPrice === "") {
         alert('Please enter value for product');
         return 0;
     } else {
         productDetails[index].pName = pName;
         productDetails[index].pDescription = pDescription;
         productDetails[index].pPrice = pPrice;
-        // productDetails[index].pImage = pImage;
+        const reader = new FileReader();
+        if (pImage.value !== "") {
+            reader.readAsDataURL(pImage.files[0]);
+            const updateProductImage = () => {
+                productDetails[index].pImage = reader.result;
+                getProduct();
+                reader.removeEventListener('load', updateProductImage);
+            };
+            reader.addEventListener('load', updateProductImage);
+        }
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
         alert(`Product Updated`);
     }
-    getProduct();
+    document.querySelector('#closeBtn').click();
 }
 
 
 let productData = document.getElementById('productData');
+
 function getProduct() {
     productData.innerHTML = "";
     productDetails.forEach((data, index) => {
         productData.innerHTML += `
         <tr>
-            <th scope="row">${index + 1}</th>
-            <td>${data.pName}</td>
-            <td>${data.pDescription}</td>
-            <td>${data.pPrice}</td>
-            <td><img src="${data.pImage}" height=auto width=100px></img</td>
-            <td>
+            <td scope="row">${index + 1}</td>
+            <td class="nameCol">${data.pName}</td>
+            <td class="descCol">${data.pDescription}</td>
+            <td class="priceCol">${data.pPrice}</td>
+            <td class="imgCol"><img src="${data.pImage}" height=auto width=100px></img></td>
+            <td class="btnCol">
                  <button  type="button" class="btn editBtn"  data-bs-toggle="modal" data-bs-target="#productView"  data-bs-whatever="update" onclick="productInfo(${index})">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                    </svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                 <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                 <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+               </svg>
                 </button>
                 <button type="button" class="btn delBtn" onclick="deleteProduct(${index})">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -104,5 +133,92 @@ function getProduct() {
         </tr>`
     });
 }
+
+const table = document.getElementById("displayTable");
+const filterData = () => {
+    const input = document.getElementById("sortInput");
+    const filter = input.value.toUpperCase();
+    const tr = table.querySelectorAll("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].querySelectorAll("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function debounceFunc(fn, delay) {
+    let timer;
+    return function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn();
+        }, delay);
+    }
+
+}
+const searchProduct = debounceFunc(filterData, 800);
+
+function sortData(column) {
+    var rows, switching, i, row1, row2, shouldSwitch, dir, switchcount = 0;
+
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            row1 = rows[i].getElementsByTagName("TD")[column];
+            row2 = rows[i + 1].getElementsByTagName("TD")[column];
+
+            if (dir == "asc") {
+                if (column == 3) {
+                    if (Number(row1.innerHTML) > Number(row2.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    if (row1.innerHTML.toLowerCase() > row2.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            } else if (dir == "desc") {
+                if (column == 3) {
+                    if (Number(row1.innerHTML) < Number(row2.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+
+                    if (row1.innerHTML.toLowerCase() < row2.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+
+}
+
+
 
 getProduct();
