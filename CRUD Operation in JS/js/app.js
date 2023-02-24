@@ -91,14 +91,14 @@ function updateData(index) {
         const reader = new FileReader();
         if (pImage.value !== "") {
             reader.readAsDataURL(pImage.files[0]);
-            const updateProductImage = () => {
+            reader.addEventListener('load', () => {
                 productDetails[index].pImage = reader.result;
+                localStorage.setItem('addProduct', JSON.stringify(productDetails));
                 getProduct();
-                reader.removeEventListener('load', updateProductImage);
-            };
-            reader.addEventListener('load', updateProductImage);
+            });
         }
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
+        getProduct();
         alert(`Product Updated`);
     }
     document.querySelector('#closeBtn').click();
@@ -218,7 +218,4 @@ function sortData(column) {
     }
 
 }
-
-
-
 getProduct();
