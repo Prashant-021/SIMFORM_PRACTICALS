@@ -34,7 +34,13 @@ const addProduct = () => {
         return;
     }
     const reader = new FileReader();
-
+    const size =
+        (pImage.files[0].size / 1024 / 1024).toFixed(2);
+    console.log(size);
+    if (size > 0.5) {
+        alert('Image size should be less than 500kb');
+        return;
+    }
     reader.readAsDataURL(pImage.files[0]);
     reader.addEventListener('load', () => {
         productDetails.push(
@@ -46,12 +52,17 @@ const addProduct = () => {
             }
         );
 
-        localStorage.setItem('addProduct', JSON.stringify(productDetails));
+        try {
+            localStorage.setItem('addProduct', JSON.stringify(productDetails));
+        }
+        catch (err) {
+            alert("Storage full!! Please remove some products from your List.");
+            getProduct();
+        }
         inputName.value = "";
         inputDescription.value = "";
         inputPrice.value = "";
         inputImage.value = "";
-        getProduct();
     })
     document.querySelector('#close').click();
 }
@@ -179,7 +190,7 @@ function sortData(column) {
             row2 = rows[i + 1].getElementsByTagName("TD")[column];
 
             if (dir == "asc") {
-                if (column == 3) {
+                if (column == 3 || column == 0) {
                     if (Number(row1.innerHTML) > Number(row2.innerHTML)) {
                         shouldSwitch = true;
                         break;
@@ -191,7 +202,7 @@ function sortData(column) {
                     }
                 }
             } else if (dir == "desc") {
-                if (column == 3) {
+                if (column == 3 || column == 0) {
                     if (Number(row1.innerHTML) < Number(row2.innerHTML)) {
                         shouldSwitch = true;
                         break;
