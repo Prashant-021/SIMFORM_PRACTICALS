@@ -44,7 +44,6 @@
                         data-bs-target="#productAdd">Add
                         Product
                     </button>
-
                 </div>
             </div>
             <!-- ========== End AddProductSection ========== -->
@@ -118,7 +117,7 @@
                             <div class="row mb-3">
                                 <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="inputPrice">
+                                    <input type="number" onkeydown="return event.keyCode !== 69 && event.keyCode !== 109 && event.keyCode !== 189 && event.keyCode !== 187 && event.keyCode !== 107" class="form-control" id="inputPrice">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -131,11 +130,12 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close" class="btn btn-secondary"
+                        <button type="button" id="closeAddBtn" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
                         <button type="submit" data-toggle="toast" data-target="#toast1" class="btn btn-primary"
                             onclick="addProduct()">Add Product</button>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -147,7 +147,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="updateProduct">Product Information</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="updateProductForm">
@@ -166,7 +165,7 @@
                             <div class="row mb-3">
                                 <label for="inputPrice" class="col-sm-3 col-form-label">Price</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="updatePrice">
+                                    <input type="number" onkeydown="return event.keyCode !== 69 && event.keyCode !== 109 && event.keyCode !== 189 && event.keyCode !== 187 && event.keyCode !== 107" class="form-control" id="updatePrice">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -192,7 +191,16 @@
         </div>
         <!-- ========== End viewProductSection ========== -->
 
-
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Product Status</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="toastMessage">
+                </div>
+            </div>
+        </div>
 
 
         <!-- Bootstrap JS -->

@@ -10,12 +10,19 @@ if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
 }
 
+const clearInputs = () => {
+    inputName.value = "";
+    inputDescription.value = "";
+    inputPrice.value = "";
+    inputImage.value = "";
+}
 
+let success = true;
 const addProduct = () => {
     const pName = inputName.value;
     const pDescription = inputDescription.value;
     const pPrice = inputPrice.value;
-    const pImage = inputImage;
+    const pImage = inputImage.files[0];
 
     if (!pName) {
         alert('Please enter product name');
@@ -29,48 +36,70 @@ const addProduct = () => {
         alert('Please enter product price');
         return;
     }
-    if (!pImage.value) {
+    if (!pImage) {
         alert('Please select image');
         return;
     }
-    const reader = new FileReader();
-    const size =
-        (pImage.files[0].size / 1024 / 1024).toFixed(2);
-    console.log(size);
-    if (size > 0.5) {
-        alert('Image size should be less than 500kb');
-        return;
-    }
-    reader.readAsDataURL(pImage.files[0]);
-    reader.addEventListener('load', () => {
-        productDetails.push(
-            {
-                pName: pName,
-                pDescription: pDescription,
-                pPrice: pPrice,
-                pImage: reader.result
-            }
-        );
 
-        try {
-            localStorage.setItem('addProduct', JSON.stringify(productDetails));
-        }
-        catch (err) {
-            alert("Storage full!! Please remove some products from your List.");
-            getProduct();
-        }
-        inputName.value = "";
-        inputDescription.value = "";
-        inputPrice.value = "";
-        inputImage.value = "";
-    })
-    document.querySelector('#close').click();
+    const reader = new FileReader();
+
+    reader.addEventListener('load', () => {
+        const img = new Image();
+
+        img.src = reader.result;
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+
+            canvas.width = 500;
+            canvas.height = 400;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, 500, 400);
+
+            canvas.toBlob((blob) => {
+                const compressedReader = new FileReader();
+
+                compressedReader.addEventListener('load', () => {
+                    const compressedImageData = compressedReader.result;
+                    productDetails.push({
+                        pName: pName,
+                        pDescription: pDescription,
+                        pPrice: pPrice,
+                        pImage: compressedImageData
+                    });
+
+                    try {
+                        localStorage.setItem('addProduct', JSON.stringify(productDetails));
+                        getProduct();
+                    } catch (err) {
+                        alert("Storage full!! Please remove some products from your List.");
+                        return;
+                    }
+                    const toastLiveExample = document.getElementById('liveToast')
+                    const toast = new bootstrap.Toast(toastLiveExample)
+                    document.getElementById('toastMessage').innerHTML = "Product added successfully!!!";
+                    toast.show()
+
+                    clearInputs();
+                    document.querySelector('#closeAddBtn').click();
+                });
+                compressedReader.readAsDataURL(blob);
+            }, 'image/jpeg', 0.5);
+        };
+    });
+    reader.readAsDataURL(pImage);
 }
 
 function deleteProduct(index) {
     if (confirm('Are you sure you want to delete?')) {
         productDetails.splice(index, 1);
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
+
+        const toastLiveExample = document.getElementById('liveToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('toastMessage').innerHTML = "Product Deleted successfully!!!";
+        toast.show()
         getProduct();
     } else {
         return;
@@ -110,7 +139,11 @@ function updateData(index) {
         }
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
         getProduct();
-        alert(`Product Updated`);
+        const toastLiveExample = document.getElementById('liveToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('toastMessage').innerHTML = "Product Updated successfully!!!";
+        toast.show()
+        getProduct();
     }
     document.querySelector('#closeBtn').click();
 }
@@ -229,4 +262,6 @@ function sortData(column) {
     }
 
 }
+
+
 getProduct();
