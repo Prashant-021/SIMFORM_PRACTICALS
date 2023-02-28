@@ -263,5 +263,9 @@ function sortData(column) {
 
 }
 
+const addProductModal = document.getElementById('productAdd');
+addProductModal.addEventListener('hide.bs.modal', function(){
+    clearInputs();
+})
 
 getProduct();
