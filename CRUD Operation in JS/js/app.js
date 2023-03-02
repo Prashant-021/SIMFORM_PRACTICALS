@@ -18,6 +18,40 @@ const clearInputs = () => {
 }
 
 let success = true;
+const compressImage = (imgFile, callback) => {
+
+    const reader = new FileReader();
+
+    reader.addEventListener('load', () => {
+        const img = new Image();
+
+        img.src = reader.result;
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            if (img.height > img.width) {
+                canvas.width = 900;
+                canvas.height = 1125;
+            } else if (img.height < img.width) {
+                canvas.width = 900;
+                canvas.height = 506.25;
+            } else {
+                canvas.width = 300;
+                canvas.height = 300;
+            }
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob((blob) => {
+                callback(blob);
+            }, 'image/jpeg', 0.5);
+        };
+    });
+
+    reader.readAsDataURL(imgFile);
+};
+
+// Function to add product
 const addProduct = () => {
     const pName = inputName.value;
     const pDescription = inputDescription.value;
@@ -41,55 +75,39 @@ const addProduct = () => {
         return;
     }
 
-    const reader = new FileReader();
+    compressImage(pImage, (compressedBlob) => {
+        const compressedReader = new FileReader();
 
-    reader.addEventListener('load', () => {
-        const img = new Image();
+        compressedReader.addEventListener('load', () => {
+            const compressedImageData = compressedReader.result;
+            productDetails.push({
+                pName: pName,
+                pDescription: pDescription,
+                pPrice: pPrice,
+                pImage: compressedImageData
+            });
 
-        img.src = reader.result;
+            try {
+                localStorage.setItem('addProduct', JSON.stringify(productDetails));
+                getProduct();
+            } catch (err) {
+                alert("Storage full!! Please remove some products from your List.");
+                return;
+            }
 
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
+            const toastLiveExample = document.getElementById('liveToast')
+            const toast = new bootstrap.Toast(toastLiveExample)
+            document.getElementById('toastMessage').innerHTML = "Product added successfully!!!";
+            toast.show()
 
-            canvas.width = 500;
-            canvas.height = 400;
+            clearInputs();
+            document.querySelector('#closeAddBtn').click();
+        });
 
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, 500, 400);
-
-            canvas.toBlob((blob) => {
-                const compressedReader = new FileReader();
-
-                compressedReader.addEventListener('load', () => {
-                    const compressedImageData = compressedReader.result;
-                    productDetails.push({
-                        pName: pName,
-                        pDescription: pDescription,
-                        pPrice: pPrice,
-                        pImage: compressedImageData
-                    });
-
-                    try {
-                        localStorage.setItem('addProduct', JSON.stringify(productDetails));
-                        getProduct();
-                    } catch (err) {
-                        alert("Storage full!! Please remove some products from your List.");
-                        return;
-                    }
-                    const toastLiveExample = document.getElementById('liveToast')
-                    const toast = new bootstrap.Toast(toastLiveExample)
-                    document.getElementById('toastMessage').innerHTML = "Product added successfully!!!";
-                    toast.show()
-
-                    clearInputs();
-                    document.querySelector('#closeAddBtn').click();
-                });
-                compressedReader.readAsDataURL(blob);
-            }, 'image/jpeg', 0.5);
-        };
+        compressedReader.readAsDataURL(compressedBlob);
     });
-    reader.readAsDataURL(pImage);
-}
+};
+
 
 function deleteProduct(index) {
     if (confirm('Are you sure you want to delete?')) {
@@ -120,23 +138,28 @@ function updateData(index) {
     const pName = document.getElementById('updateName').value;
     const pDescription = document.getElementById('updateDescription').value;
     const pPrice = document.getElementById('updatePrice').value;
-    const pImage = document.getElementById('updateImage');
+    const pImage = document.getElementById('updateImage').files[0];
     if (pName === "" || pDescription === "" || pPrice === "") {
         alert('Please enter value for product');
         return 0;
     } else {
+
         productDetails[index].pName = pName;
         productDetails[index].pDescription = pDescription;
         productDetails[index].pPrice = pPrice;
-        const reader = new FileReader();
-        if (pImage.value !== "") {
-            reader.readAsDataURL(pImage.files[0]);
-            reader.addEventListener('load', () => {
-                productDetails[index].pImage = reader.result;
+        compressImage(pImage, (compressedBlob) => {
+            const compressedReader = new FileReader();
+
+            compressedReader.addEventListener('load', () => {
+                const compressedImageData = compressedReader.result;
+                productDetails[index].pImage = compressedImageData;
                 localStorage.setItem('addProduct', JSON.stringify(productDetails));
                 getProduct();
+
             });
-        }
+
+            compressedReader.readAsDataURL(compressedBlob);
+        });
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
         getProduct();
         const toastLiveExample = document.getElementById('liveToast')
@@ -148,10 +171,24 @@ function updateData(index) {
     document.querySelector('#closeBtn').click();
 }
 
+const noProducts = () => {
+    if (productDetails.length === 0) {
+        document.querySelector('.emptyProductList').innerHTML += `
+        <div>
+        <img src="./img/noProduct.webp" width="40%" height="auto" alt="">
+                    
+            <h2><strong>No Product Data to show</strong></h2> 
+        </div>`;
+    }
+    else {
+        document.querySelector('.emptyProductList').innerHTML = "";
+    }
+}
 
 let productData = document.getElementById('productData');
 
 function getProduct() {
+    noProducts()
     productData.innerHTML = "";
     productDetails.forEach((data, index) => {
         productData.innerHTML += `
@@ -264,7 +301,7 @@ function sortData(column) {
 }
 
 const addProductModal = document.getElementById('productAdd');
-addProductModal.addEventListener('hide.bs.modal', function(){
+addProductModal.addEventListener('hide.bs.modal', function () {
     clearInputs();
 })
 
