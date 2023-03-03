@@ -17,9 +17,12 @@ body {
     margin-left: 10px;
     width: 90%;
 }
+
 .addProductSec .btn {
-    background: #74BDE0;
+    background: #00aeff;
+    color: #fff;
 }
+
 .addProductSec,
 .viewProductSection {
     background: rgb(255, 255, 255);
@@ -28,18 +31,19 @@ body {
     border-radius: 5px;
 }
 
-.bi-arrow-down-up{
-    color: black;  
+.bi-arrow-down-up {
+    color: black;
 }
 
 .viewProductSection {
     height: 70vh;
 }
-.viewProductSection h3{
+
+.viewProductSection h3 {
     color: #4A8DB7;
 }
 
-th{
+th {
     color: #4A8DB7;
 }
 
@@ -63,7 +67,6 @@ input::-webkit-inner-spin-button {
 }
 
 .delBtn {
-    /* opacity: 0; */
     display: none;
 }
 
@@ -76,4 +79,10 @@ tr:hover .delBtn {
     height: 30%;
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .delBtn{
+        display: inline-block;
+    }
 }

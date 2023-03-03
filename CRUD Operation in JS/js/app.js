@@ -1,11 +1,13 @@
 const productAdded = document.getElementById('submitBtn');
-let productDetails = [];
+let productDetails = []; 
+const emptyProductList = document.querySelector('.emptyProductList')
+
 
 const inputName = document.getElementById('inputName');
 const inputDescription = document.getElementById('inputDescription');
 const inputPrice = document.getElementById('inputPrice');
 const inputImage = document.getElementById('inputImage');
-
+let flag = true;
 if (localStorage.getItem('addProduct') != null) {
     productDetails = JSON.parse(localStorage.getItem('addProduct'));
 }
@@ -109,7 +111,7 @@ const addProduct = () => {
 };
 
 
-function deleteProduct(index) {
+const deleteProduct = (index) => {
     if (confirm('Are you sure you want to delete?')) {
         productDetails.splice(index, 1);
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
@@ -124,7 +126,7 @@ function deleteProduct(index) {
     }
 }
 
-function productInfo(index) {
+const productInfo = (index) => {
     document.getElementById('updateName').value = productDetails[index].pName;
     document.getElementById('updateDescription').value = productDetails[index].pDescription;
     document.getElementById('updatePrice').value = productDetails[index].pPrice;
@@ -134,7 +136,7 @@ function productInfo(index) {
         updateData(index);
     }
 }
-function updateData(index) {
+const updateData = (index) => {
     const pName = document.getElementById('updateName').value;
     const pDescription = document.getElementById('updateDescription').value;
     const pPrice = document.getElementById('updatePrice').value;
@@ -147,19 +149,21 @@ function updateData(index) {
         productDetails[index].pName = pName;
         productDetails[index].pDescription = pDescription;
         productDetails[index].pPrice = pPrice;
-        compressImage(pImage, (compressedBlob) => {
-            const compressedReader = new FileReader();
+        if (pImage) {
+            compressImage(pImage, (compressedBlob) => {
+                const compressedReader = new FileReader();
 
-            compressedReader.addEventListener('load', () => {
-                const compressedImageData = compressedReader.result;
-                productDetails[index].pImage = compressedImageData;
-                localStorage.setItem('addProduct', JSON.stringify(productDetails));
-                getProduct();
+                compressedReader.addEventListener('load', () => {
+                    const compressedImageData = compressedReader.result;
+                    productDetails[index].pImage = compressedImageData;
+                    localStorage.setItem('addProduct', JSON.stringify(productDetails));
+                    getProduct();
 
+                });
+
+                compressedReader.readAsDataURL(compressedBlob);
             });
-
-            compressedReader.readAsDataURL(compressedBlob);
-        });
+        }
         localStorage.setItem('addProduct', JSON.stringify(productDetails));
         getProduct();
         const toastLiveExample = document.getElementById('liveToast')
@@ -173,7 +177,7 @@ function updateData(index) {
 
 const noProducts = () => {
     if (productDetails.length === 0) {
-        document.querySelector('.emptyProductList').innerHTML += `
+        emptyProductList.innerHTML += `
         <div>
         <img src="./img/noProduct.webp" width="40%" height="auto" alt="">
                     
@@ -181,13 +185,20 @@ const noProducts = () => {
         </div>`;
     }
     else {
-        document.querySelector('.emptyProductList').innerHTML = "";
+        emptyProductList.innerHTML = "";
     }
 }
 
 let productData = document.getElementById('productData');
 
-function getProduct() {
+const clearList = () => {
+    if(confirm('Are you sure you want to delete all products?')){
+        localStorage.clear();
+        window.location.reload();
+    }
+}
+
+const getProduct = () => {
     noProducts()
     productData.innerHTML = "";
     productDetails.forEach((data, index) => {
@@ -246,7 +257,7 @@ function debounceFunc(fn, delay) {
 }
 const searchProduct = debounceFunc(filterData, 800);
 
-function sortData(column) {
+const sortData = (column) => {
     var rows, switching, i, row1, row2, shouldSwitch, dir, switchcount = 0;
 
     switching = true;
