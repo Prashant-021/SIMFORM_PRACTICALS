@@ -14,3 +14,5 @@ With Media Query:- https://deploy-preview-3--darling-seahorse-6b1394.netlify.app
 Scientific Calculator:- https://quiet-manatee-45801e.netlify.app/
 
 Single Page Application:- https://benevolent-chaja-90fdf4.netlify.app/
+
+CRUD Operations in JS:- https://curious-kleicha-52d055.netlify.app/
