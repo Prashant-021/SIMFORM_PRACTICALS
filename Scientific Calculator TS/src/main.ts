@@ -534,3 +534,18 @@ function enterValue(enteredValue: string): void {
         }
     }
 }
+
+
+document.addEventListener('keydown', function(event) {
+    if(display === null) return;
+    clearDisplay();
+    let key:string = event.key;
+    if (!Number.isNaN(key) || key === '+' || key === '-' || key === '*' || key === '/' || key === '.') {
+        display.value += key; 
+    }else if(key === "Backspace"){
+        let len:number = display.value.length;
+        display.value = display.value.slice(0, len - 1);
+    }else if (key === 'Enter') {
+        calculateExpression(display.value);
+    }
+});
