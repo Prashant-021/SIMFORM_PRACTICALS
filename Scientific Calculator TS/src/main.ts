@@ -540,7 +540,7 @@ document.addEventListener('keydown', function(event) {
     if(display === null) return;
     clearDisplay();
     let key:string = event.key;
-    if (!Number.isNaN(key) || key === '+' || key === '-' || key === '*' || key === '/' || key === '.') {
+    if (isNaN(Number(key)) === false|| key === '+' || key === '-' || key === '*' || key === '/' || key === '.') {
         display.value += key; 
     }else if(key === "Backspace"){
         let len:number = display.value.length;

@@ -536,7 +536,7 @@ document.addEventListener('keydown', function (event) {
         return;
     clearDisplay();
     let key = event.key;
-    if (!Number.isNaN(key) || key === '+' || key === '-' || key === '*' || key === '/' || key === '.') {
+    if (isNaN(Number(key)) === false || key === '+' || key === '-' || key === '*' || key === '/' || key === '.') {
         display.value += key;
     }
     else if (key === "Backspace") {
