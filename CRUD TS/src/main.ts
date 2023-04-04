@@ -8,10 +8,10 @@ type ObjProducts = {
     products: Product[];
 }
 
-function getElement<T extends HTMLElement>(id: string): T | never {
+function getElement<T extends HTMLElement>(id: string): T | void {
     const element = document.getElementById(id);
     if (!element) {
-        throw new Error(`Could not find element`);
+        alert(`Could not find element`);
     }
     return element as T;
 }
