@@ -23,9 +23,13 @@ registerBtn.addEventListener("click", (e: Event) => {
         password: newpassword.value
     } 
     if(!findUser(newUser, "User already exist")){
-        presentUsers.users.push(newUser)
-        localStorage.setItem("UserData",JSON.stringify(presentUsers.users) )
-        alert("User Added");
+        if(newUser.password === "" || newUser.password.length < 4){
+            alert("Please enter Valid Passowrd")
+        }else{
+            presentUsers.users.push(newUser)
+            localStorage.setItem("UserData",JSON.stringify(presentUsers.users) )
+            alert("User Added");
+        }
     }
     
 })
