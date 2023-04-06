@@ -26,7 +26,7 @@ if (loginBtn) {
                 document.location = 'homePage.html';
             }
             else {
-                alert('Invalid Username or Password');
+                alert("User Not Found, Please Register Yourself");
             }
         }
     });

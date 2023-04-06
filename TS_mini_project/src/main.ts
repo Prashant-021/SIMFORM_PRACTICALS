@@ -30,7 +30,9 @@ if (savedData != null) {
 const ul = document.querySelector('ul') as HTMLUListElement;
 const list = new ListTemplate(ul);
 
-
+const viewLogs = (): void => {
+    
+};
 const validateDate = (...data: string[]): boolean => {
     let isValid: boolean = true;
     if (data[0] === "") {
@@ -51,7 +53,7 @@ const validateDate = (...data: string[]): boolean => {
 if (form) {
     form.addEventListener("submit", (e: Event) => {
         e.preventDefault()
-
+        
         let logs: hasFormatter;
         if (validateDate(toFrom.value, details.value, amount.value)) {
 
@@ -62,20 +64,14 @@ if (form) {
             }
             presentLogs.logs.push(logs)
             localStorage.setItem("LogsData", JSON.stringify(presentLogs.logs))
-            list.render(logs, type.value, "end")
+            list.render(logs, logs.Type, "end")
         }
     })
 }
-const viewLogs = (logs: hasFormatter[]): void => {
-    logs.forEach((data) => {
-        console.log(logs[0].Type);
 
-        list.render(data,data.Type , "end");
-    });
 
-};
 
-viewLogs(presentLogs.logs);
+viewLogs();
 
 
 

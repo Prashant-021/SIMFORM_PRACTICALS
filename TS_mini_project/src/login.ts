@@ -31,8 +31,8 @@ if (loginBtn) {
             if (findUser(userData, `Welcome ${userName.value}`)) {
                 document.location = 'homePage.html'
             }
-            else {
-                alert('Invalid Username or Password')
+            else{
+                alert("User Not Found, Please Register Yourself")
             }
         }
     })

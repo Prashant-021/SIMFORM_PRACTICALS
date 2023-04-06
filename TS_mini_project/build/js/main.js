@@ -18,6 +18,8 @@ if (savedData != null) {
 //list Template
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
+const viewLogs = () => {
+};
 const validateDate = (...data) => {
     let isValid = true;
     if (data[0] === "") {
@@ -47,17 +49,11 @@ if (form) {
             }
             presentLogs.logs.push(logs);
             localStorage.setItem("LogsData", JSON.stringify(presentLogs.logs));
-            list.render(logs, type.value, "end");
+            list.render(logs, logs.Type, "end");
         }
     });
 }
-const viewLogs = (logs) => {
-    logs.forEach((data) => {
-        console.log(logs[0].Type);
-        list.render(data, data.Type, "end");
-    });
-};
-viewLogs(presentLogs.logs);
+viewLogs();
 logoutBtn === null || logoutBtn === void 0 ? void 0 : logoutBtn.addEventListener("click", () => {
     document.location = 'index.html';
 });
