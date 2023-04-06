@@ -1,0 +1,32 @@
+.contentBox {
+    height: 100vh;
+}
+
+.listDisplay {
+    height: 70vh;
+}
+
+h4 {
+    color: blue;
+}
+
+ul {
+    list-style: square;
+}
+
+.listBody {
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.errMessage{
+    display: none;
+}
