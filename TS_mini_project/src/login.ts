@@ -30,6 +30,7 @@ if (loginBtn) {
         if (validate(userData)) {
             if (findUser(userData, `Welcome ${userName.value}`)) {
                 document.location = 'homePage.html'
+                sessionStorage.setItem('currentUser', userName.value)
             }
             else{
                 alert("User Not Found, Please Register Yourself")

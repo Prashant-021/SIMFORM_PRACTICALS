@@ -30,9 +30,7 @@ if (savedData != null) {
 const ul = document.querySelector('ul') as HTMLUListElement;
 const list = new ListTemplate(ul);
 
-const viewLogs = (): void => {
-    
-};
+
 const validateDate = (...data: string[]): boolean => {
     let isValid: boolean = true;
     if (data[0] === "") {
@@ -49,6 +47,7 @@ const validateDate = (...data: string[]): boolean => {
     }
     return isValid
 }
+let current: string | null=sessionStorage.getItem('currentUser');
 
 if (form) {
     form.addEventListener("submit", (e: Event) => {
@@ -56,26 +55,36 @@ if (form) {
         
         let logs: hasFormatter;
         if (validateDate(toFrom.value, details.value, amount.value)) {
-
+            
             if (type.value === 'invoice') {
                 logs = new Invoice(type.value, toFrom.value, details.value, amount.valueAsNumber)
             } else {
                 logs = new Payment(type.value, toFrom.value, details.value, amount.valueAsNumber)
             }
             presentLogs.logs.push(logs)
-            localStorage.setItem("LogsData", JSON.stringify(presentLogs.logs))
+            if(current)
+                localStorage.setItem(current, JSON.stringify(presentLogs.logs))
             list.render(logs, logs.Type, "end")
+            console.log(logs);
+            
         }
     })
 }
 
 
-
-viewLogs();
+const viewLogs = (): void => {
+    if(current){
+        let userLog = localStorage.getItem(current)
+        console.log(userLog);
+        
+    }
+};
+viewLogs()
 
 
 
 logoutBtn?.addEventListener("click", () => {
     document.location = 'index.html'
+    sessionStorage.clear()
 })
 

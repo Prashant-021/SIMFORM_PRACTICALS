@@ -18,8 +18,6 @@ if (savedData != null) {
 //list Template
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
-const viewLogs = () => {
-};
 const validateDate = (...data) => {
     let isValid = true;
     if (data[0] === "") {
@@ -36,6 +34,7 @@ const validateDate = (...data) => {
     }
     return isValid;
 };
+let current = sessionStorage.getItem('currentUser');
 if (form) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -48,12 +47,21 @@ if (form) {
                 logs = new Payment(type.value, toFrom.value, details.value, amount.valueAsNumber);
             }
             presentLogs.logs.push(logs);
-            localStorage.setItem("LogsData", JSON.stringify(presentLogs.logs));
+            if (current)
+                localStorage.setItem(current, JSON.stringify(presentLogs.logs));
             list.render(logs, logs.Type, "end");
+            console.log(logs);
         }
     });
 }
+const viewLogs = () => {
+    if (current) {
+        let userLog = localStorage.getItem(current);
+        console.log(userLog);
+    }
+};
 viewLogs();
 logoutBtn === null || logoutBtn === void 0 ? void 0 : logoutBtn.addEventListener("click", () => {
     document.location = 'index.html';
+    sessionStorage.clear();
 });

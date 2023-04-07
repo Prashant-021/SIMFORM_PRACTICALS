@@ -23,7 +23,7 @@ export const findUser = (user, message) => {
     if (typeof savedData === 'string') {
         let Users = JSON.parse(savedData);
         for (let i = 0; i < Users.length; i++) {
-            if ((Users[i].userName).toLowerCase() === (user.userName).toLowerCase() && Users[i].password === user.password) {
+            if ((Users[i].userName).toLowerCase() === (user.userName).toLowerCase()) {
                 userExist = true;
                 alert(message);
             }
