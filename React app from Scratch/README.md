@@ -1,4 +1,4 @@
-# creating React App from scratch
+# Creating React App from scratch
 
 ## Prerequisites 
 - Install node 
