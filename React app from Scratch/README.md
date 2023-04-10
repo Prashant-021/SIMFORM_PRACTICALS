@@ -2,6 +2,20 @@
 
 ## Prerequisites 
 - Install node 
+
+to download the latest version of npm, on the command line, run the following command:
+```
+npm install -g npm
+```
+---
+### Checking your version of npm and Node.js
+
+To see if you already have Node.js and npm installed and check the installed version, run the following commands:
+
+```
+node -v
+npm -v
+```
 ## Follow the instructions
 - Step 1: Node initialization
  
