@@ -1,0 +1,10 @@
+.bodySec{
+    min-height: 93.5vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentBox{
+    height: 60vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

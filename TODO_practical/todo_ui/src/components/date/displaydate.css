@@ -2,13 +2,15 @@ p, .row,.col {
     margin: 0;
     padding: 0;
 }
-p{
+/* p{
     font-size: 15px;
     color: #595d6c;
-}
-
-.day{
+} */
+.date{
     font-size: 40px;
+}
+.day{
+    font-size: 22px;
     font-weight: 500;
 }
 
