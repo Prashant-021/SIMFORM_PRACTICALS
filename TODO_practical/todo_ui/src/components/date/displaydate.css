@@ -1,0 +1,18 @@
+p, .row,.col {
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: 15px;
+    color: #595d6c;
+}
+
+.day{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+.dayDate{ 
+    font-size: 14px;
+}
