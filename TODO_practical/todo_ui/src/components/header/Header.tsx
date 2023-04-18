@@ -5,8 +5,8 @@ import { Container, Navbar } from 'react-bootstrap'
 const Header = () => {
   return (
     <Navbar bg="dark" variant='dark'>
-        <Container>
-          <Navbar.Brand>Todo App</Navbar.Brand>
+        <Container className='justify-content-center'>
+          <Navbar.Brand>Todo App in React</Navbar.Brand>
         </Container>
       </Navbar>
   )
