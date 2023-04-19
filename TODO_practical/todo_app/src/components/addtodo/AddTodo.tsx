@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import './addtodo.css'
 
+interface task {
+    title: string,
+    status: boolean
+}
 
 const AddTodo = () => {
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [task, setTask] = useState<task[]>(() => {
+        const avaliableTask = Cookies.get("todoTasks");
+        return avaliableTask ? JSON.parse(avaliableTask) : [];
+    })
 
     const handleButtonClick = () => {
         setShowInput(true);
@@ -13,17 +21,40 @@ const AddTodo = () => {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
+
     };
 
     const closeInput = () => {
         setShowInput(false);
     };
 
+    const handleEvent = (event: { key: string; }) => {
+        if (event.key === 'Enter') {
+            const tasklist: task[] = [...task]
+            tasklist.push({
+                title: inputValue.trim(),
+                status: false
+            })
+            
+            setTask(tasklist)
+            setInputValue("")        
+        }
+    }
+    useEffect(()=>{
+        Cookies.set("todoTasks", JSON.stringify(task), { expires: 1 })
+    }, [task])
     return (
         <div className='addSection mt-3 mt-xl-4'>
             {showInput ? (
                 <div className='inputSection w-100 gx-2 text-center'>
-                    <input type="text" className='w-75' value={inputValue} placeholder="Enter your Task" onChange={handleInputChange} autoFocus/>
+                    <input
+                        type="text"
+                        className='w-75'
+                        value={inputValue}
+                        placeholder="Enter your Task"
+                        onChange={handleInputChange}
+                        onKeyDown={handleEvent}
+                        autoFocus />
                     <button className='cancelBtn' onClick={closeInput}>X</button>
                 </div>
             ) : (

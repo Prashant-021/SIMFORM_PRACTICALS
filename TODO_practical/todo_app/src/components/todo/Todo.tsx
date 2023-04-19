@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 
 import './todo.css'
-
-type Props = {
+interface task {
     title: string,
-    index: number,
+    status: boolean
+}
+type Props = {
+    task: task
 }
 
 const Todo = (props: Props) => {
@@ -12,9 +14,10 @@ const Todo = (props: Props) => {
     const toggleText: React.MouseEventHandler<HTMLInputElement> = () => {
         (color === 'black') ? setColor('grey') : setColor('black');
     }
+    
     return (
         <div className="col-12 todo d-flex align-items-center justify-content-between">
-            <p className='titleText' style={{ color: color }}>{props.title}</p>
+            <p className='titleText' style={{ color: color }}>{props.task.title}</p>
             <input type="checkbox" onClick={toggleText} className='checkBox' />
         </div>
     )
