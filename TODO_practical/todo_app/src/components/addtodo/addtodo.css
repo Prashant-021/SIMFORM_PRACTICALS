@@ -16,6 +16,15 @@
     color: #ffff;
 }
 
+.inputBox{
+    border: none;
+    border-bottom: 1px solid;
+    background-color: #f0efe9;
+}
+.inputBox:focus{
+    outline: 0;
+}
+
 .cancelBtn{
     margin-left: 10px;
     border: none;

@@ -4,11 +4,13 @@ import Todolist from '../todolist/Todolist';
 import Cookies from 'js-cookie'
 
 import './addtodo.css'
+import { toast } from 'react-hot-toast';
+// import { Toast } from 'react-bootstrap';
 
 
 const AddTodo = () => {
     const [showInput, setShowInput] = useState<boolean>(false);
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState<string>('');
     const [task, setTask] = useState<ITask[]>(() => {
         const availableTask = Cookies.get("todoTasks");
         return availableTask ? JSON.parse(availableTask) : [];
@@ -24,11 +26,21 @@ const AddTodo = () => {
 
     const eventHandler = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
-            const newTask: ITask[] = [...task, {
-                title: inputValue.trim(),
-                status: false
-            }]
-            setTask(newTask)
+            if(inputValue.length === 0){
+                toast.error("Please Enter a task")
+            }else{
+                const newTask: ITask = {
+                    title: inputValue.trim(),
+                    status: false
+                } 
+                const newTaskList: ITask[] = [...task, newTask];
+                setTask(newTaskList)
+                toast.success("Task added successfully!!!")
+                setInputValue('')
+            }    
+        }
+        if(event.key === 'Escape'){
+            closeInput()
         }
     }
 
@@ -45,7 +57,7 @@ const AddTodo = () => {
             <Todolist taskList={task} setTask={setTask} />
             {showInput ? (
                 <div className='inputSection w-100 gx-2 text-center'>
-                    <input type="text" className='w-75' value={inputValue} onChange={handleInputChange} onKeyDown={eventHandler} autoFocus />
+                    <input type="text" className='w-75 inputBox' placeholder='Enter a task' value={inputValue} onChange={handleInputChange} onKeyDown={eventHandler} autoFocus />
                     <button className='cancelBtn' onClick={closeInput}>X</button>
                 </div>
             ) : (
