@@ -1,7 +1,7 @@
 .listContainer {
-    height: 80%;
-    display: flex;
     align-content: flex-start;
+    display: flex;
+    height: 68%;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;

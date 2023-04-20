@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { ITask } from '../interface';
 import Todolist from '../todolist/Todolist';
 import Cookies from 'js-cookie'
@@ -38,18 +38,22 @@ const AddTodo = () => {
                 setInputValue('')
             }
         }
-        if (event.key === 'Escape') {
-            closeInput()
-        }
     }
 
-    const closeInput = () => {
-        setShowInput(false);
-    };
+    const handleEscape = useCallback((event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+            setShowInput(false)
+            setInputValue('')
+        }
+    }, [])
 
     useEffect(() => {
         Cookies.set("todoTasks", JSON.stringify(task), { expires: 1 })
-    }, [task])
+        document.addEventListener('keydown', handleEscape);
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [task, handleEscape])
 
     return (
         <>
