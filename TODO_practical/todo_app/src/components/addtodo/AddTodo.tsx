@@ -5,7 +5,6 @@ import Cookies from 'js-cookie'
 
 import './addtodo.css'
 import { toast } from 'react-hot-toast';
-// import { Toast } from 'react-bootstrap';
 
 
 const AddTodo = () => {
@@ -26,20 +25,20 @@ const AddTodo = () => {
 
     const eventHandler = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
-            if(inputValue.length === 0){
+            if (inputValue.length === 0) {
                 toast.error("Please Enter a task")
-            }else{
+            } else {
                 const newTask: ITask = {
                     title: inputValue.trim(),
                     status: false
-                } 
+                }
                 const newTaskList: ITask[] = [...task, newTask];
                 setTask(newTaskList)
                 toast.success("Task added successfully!!!")
                 setInputValue('')
-            }    
+            }
         }
-        if(event.key === 'Escape'){
+        if (event.key === 'Escape') {
             closeInput()
         }
     }
@@ -53,23 +52,25 @@ const AddTodo = () => {
     }, [task])
 
     return (
-        <div className='addSection mt-3 mt-xl-4'>
+        <>
             <Todolist taskList={task} setTask={setTask} />
-            {showInput ? (
-                <div className='inputSection w-100 gx-2 text-center'>
-                    <input type="text" className='w-75 inputBox' placeholder='Enter a task' value={inputValue} onChange={handleInputChange} onKeyDown={eventHandler} autoFocus />
-                    <button className='cancelBtn' onClick={closeInput}>X</button>
-                </div>
-            ) : (
-                <div className="buttonSec w-100 d-flex justify-content-center">
-                    <button className='addBtn' onClick={handleButtonClick}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-                            <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                        </svg>
-                    </button>
-                </div>
-            )}
-        </div>
+            <div className='addSection'>
+                {showInput ? (
+                    <div className='inputSection my-3 w-100 gx-2 text-center'>
+                        <input type="text" className='w-75 inputBox' placeholder='Enter a task' value={inputValue} onChange={handleInputChange} onKeyDown={eventHandler} autoFocus />
+                        {/* <button className='cancelBtn' onClick={closeInput}>X</button> */}
+                    </div>
+                ) : (
+                    <div className="buttonSec position-sticky  w-100 d-flex justify-content-center">
+                        <button className='addBtn' onClick={handleButtonClick}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                            </svg>
+                        </button>
+                    </div>
+                )}
+            </div>
+        </>
     );
 }
 

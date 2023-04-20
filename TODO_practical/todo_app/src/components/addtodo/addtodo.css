@@ -1,5 +1,5 @@
 .addSection{
-    height: 90%;
+    /* height: 90%; */
     /* display: flex; */
     width: 100%;
     justify-content: center;
@@ -7,7 +7,7 @@
 
 .addBtn{
     height: 80px;
-    top: 2rem ;
+    top: 2.5rem ;
     position: relative;
     width: 80px;
     border-radius: 50%;
@@ -19,16 +19,8 @@
 .inputBox{
     border: none;
     border-bottom: 1px solid;
-    background-color: #f0efe9;
+    background-color: transparent;
 }
 .inputBox:focus{
     outline: 0;
-}
-
-.cancelBtn{
-    margin-left: 10px;
-    border: none;
-    background: #ff6868;
-    color: white;
-    border-radius: 6px;
 }
