@@ -1,0 +1,19 @@
+.titleText{
+    font-weight: 300;
+}
+.checkBox {
+    appearance: none;
+    border: 2px solid rgb(133, 133, 133);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 30px;
+    position: relative;
+    width: 30px;
+}
+
+input[type=checkbox]:checked {
+    background-image: url(../img/checkbox.ico);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+}
