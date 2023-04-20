@@ -1,15 +1,16 @@
 .addSection{
-    height: 20%;
-    display: flex;
+    height: 90%;
+    /* display: flex; */
     width: 100%;
     justify-content: center;
 }
 
 .addBtn{
     height: 80px;
+    top: 2rem ;
+    position: relative;
     width: 80px;
     border-radius: 50%;
-    position: absolute;
     background: #50e3a3b2;
     border: none;
     color: #ffff;

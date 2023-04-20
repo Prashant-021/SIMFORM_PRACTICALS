@@ -1,37 +1,33 @@
-import React, { useEffect } from 'react'
-import Cookies from 'js-cookie'
-import './todolist.css'
-import Todo from '../todo/Todo'
-import { useState } from 'react'
+import React from 'react'
 
-interface Itask {
-    title: string,
-    status: boolean
+import './todolist.css'
+import { ITask } from '../interface'
+interface ITodoListProps {
+    taskList: ITask[];
+    setTask: React.Dispatch<React.SetStateAction<ITask[]>>;
 }
 
+const Todolist: React.FC<ITodoListProps> = (props) => {
 
-function Todolist() {
-    // let avaliableTasksList
-    // if (typeof avaliableTasks === 'undefined') {
-    //     avaliableTasksList = []
-    // } else {
-    //     avaliableTasksList = JSON.parse(avaliableTasks)
-    // }
-
-    const [displayTask, setDisplayTasks] = useState<Itask[]>([])
-    useEffect(() => {
-        setTimeout(() => {
-            const avaliableTasks = Cookies.get('todoTasks')
-            if (typeof avaliableTasks !== 'undefined')
-                setDisplayTasks(JSON.parse(avaliableTasks))
-        }, 500);
-    }, [displayTask])
+    const toggleText = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        const newList = [...props.taskList]
+        newList[index].status = newList[index].status ? false : true;
+        props.setTask(newList)
+    };
+    
+    
 
     return (
         <div className='row gy-2 my-2 listContainer'>
-            {displayTask.map((todo: Itask, index: React.Key | null | undefined) => <Todo key={index} task = {todo} />)}
+            {props.taskList.map((todo: ITask, index: number) => (
+                <div key={index} className="col-12 todo d-flex align-items-center justify-content-between">
+                    <p className= {todo.status?"titleText text-muted": "titleText text-dark"}>{todo.title}</p>
+                    <input type="checkbox" onChange={(event) => { toggleText(event, index) }} className='checkBox' checked={todo.status} />
+                </div>)
+            )}
         </div>
     )
+
 }
 
 export default Todolist
