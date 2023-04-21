@@ -1,3 +1,3 @@
-# ToDo UI in React and TSX
-Live demo: https://beautiful-cranachan-760282.netlify.app/
+# ToDo Practical in React and TSX
+Live demo: https://stately-dolphin-98b381.netlify.app/
 
