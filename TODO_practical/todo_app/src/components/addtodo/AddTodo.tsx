@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { ITask } from '../interface';
 import Todolist from '../todolist/Todolist';
 import Cookies from 'js-cookie'
@@ -14,6 +14,8 @@ const AddTodo = () => {
         const availableTask = Cookies.get("todoTasks");
         return availableTask ? JSON.parse(availableTask) : [];
     });
+
+    const childRef = useRef<HTMLDivElement>(null)
 
     const handleButtonClick = () => {
         setShowInput(true);
@@ -35,6 +37,7 @@ const AddTodo = () => {
                 const newTaskList: ITask[] = [...task, newTask];
                 setTask(newTaskList)
                 toast.success("Task added successfully!!!")
+                setTimeout(()=>childRef.current?.scrollIntoView({behavior: 'smooth'}),10);
                 setInputValue('')
             }
         }
@@ -57,7 +60,7 @@ const AddTodo = () => {
 
     return (
         <>
-            <Todolist taskList={task} setTask={setTask} />
+            <Todolist taskList={task} setTask={setTask} ref={childRef} />
             <div className='addSection'>
                 {showInput ? (
                     <div className='inputSection my-3 w-100 gx-2 text-center'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import './todolist.css'
 import { ITask } from '../interface'
@@ -11,7 +11,8 @@ interface ITodoListProps {
     setTask: React.Dispatch<React.SetStateAction<ITask[]>>;
 }
 
-const Todolist: React.FC<ITodoListProps> = (props) => {
+const Todolist = forwardRef<HTMLDivElement, ITodoListProps>((props, ref) => {
+
 
     const toggleStatus = (index: number) => {
         const newList = [...props.taskList]
@@ -24,20 +25,19 @@ const Todolist: React.FC<ITodoListProps> = (props) => {
         props.setTask(newList)
     };
 
-
-
     function deleteTask(index: number) {
         const newList = [...props.taskList]
         newList.splice(index, 1)
         props.setTask(newList)
         toast('Task Deleted');
     }
-
     return (
         <div className='row gy-2 my-2 listContainer'>
             {props.taskList.map((todo: ITask, index: number) => (
-                <div key={index} className="col-12 todo d-flex align-items-center justify-content-between">
-                    <p className={todo.status ? "titleText text-muted" : "titleText text-dark"}>{todo.title}</p>
+                <div key={index} ref={ref} className=" todo col-12 d-flex align-items-center justify-content-between">
+                    <div className='breakWords text-justify'>
+                        <p className={todo.status ? "titleText text-muted" : "titleText text-dark "}>{todo.title}</p>
+                    </div>
                     <div className="buttons d-flex align-items-center">
                         <button className='btn' onClick={() => deleteTask(index)}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
@@ -49,7 +49,6 @@ const Todolist: React.FC<ITodoListProps> = (props) => {
             )}
         </div>
     )
-
 }
-
+)
 export default Todolist

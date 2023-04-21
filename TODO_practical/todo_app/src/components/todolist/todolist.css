@@ -5,19 +5,18 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    }
+.todo {
+    border-radius: 8px;
+    background-color: #ffff;
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.listContainer::-webkit-scrollbar {
+::-webkit-scrollbar{
     display: none;
 }
 
-.todo {
-    height: 40px;
-}
-
-.titleText{
-    font-weight: 400;
-}
 .checkBox {
     appearance: none;
     border: 2px solid rgb(133, 133, 133);
@@ -33,4 +32,9 @@ input[type=checkbox]:checked {
     background-repeat: no-repeat;
     background-size: 100%;
     border: none;
+}
+
+.breakWords{
+    overflow-wrap: break-word;
+    max-width: 79%;
 }
