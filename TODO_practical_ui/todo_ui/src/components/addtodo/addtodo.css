@@ -1,0 +1,24 @@
+.addSection{
+    height: 20%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.addBtn{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: absolute;
+    background: #50e3a3b2;
+    border: none;
+    color: #ffff;
+}
+
+.cancelBtn{
+    margin-left: 10px;
+    border: none;
+    background: #ff6868;
+    color: white;
+    border-radius: 6px;
+}
