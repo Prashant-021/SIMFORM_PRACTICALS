@@ -1,0 +1,40 @@
+.listContainer {
+    align-content: flex-start;
+    display: flex;
+    height: 68%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    }
+.todo {
+    border-radius: 8px;
+    background-color: #ffff;
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.checkBox {
+    appearance: none;
+    border: 2px solid rgb(133, 133, 133);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 30px;
+    position: relative;
+    width: 30px;
+}
+
+input[type=checkbox]:checked {
+    background-image: url(../img/checkbox.ico);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: none;
+}
+
+.breakWords{
+    overflow-wrap: break-word;
+    max-width: 79%;
+}

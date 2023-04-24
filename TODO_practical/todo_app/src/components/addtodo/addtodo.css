@@ -1,0 +1,26 @@
+.addSection{
+    /* height: 90%; */
+    /* display: flex; */
+    width: 100%;
+    justify-content: center;
+}
+
+.addBtn{
+    height: 80px;
+    top: 3rem ;
+    position: relative;
+    width: 80px;
+    border-radius: 50%;
+    background: #50e3a3b2;
+    border: none;
+    color: #ffff;
+}
+
+.inputBox{
+    border: none;
+    border-bottom: 1px solid;
+    background-color: transparent;
+}
+.inputBox:focus{
+    outline: 0;
+}
