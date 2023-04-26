@@ -12,11 +12,11 @@ function App() {
     <div className="App d-flex justify-content-center align-items-center">
       <div className="container">
         <div className="row  ">
-          <div className="col-12 col-md-10 box border overflow-auto ">
+          <div className="col-12 col-lg-10 mt-5 mt-lg-0 box border overflow-auto ">
             <Userlist />
           </div>
-          <div className="col-2">
-            {userProfileData.length !== 0 ? <Userinfo user = {userProfileData[0].user}/> : ''}
+          <div className="col-12 col-lg-2 d-flex justify-content-center">
+            {userProfileData.length !== 0 ? <Userinfo user = {userProfileData[0].user}/> : <div className='emptyUserInfo'></div>}
           </div>
         </div>
       </div>

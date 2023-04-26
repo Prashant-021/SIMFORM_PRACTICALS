@@ -1,11 +1,11 @@
 .card {
-    border : 1px solid grey;
+    border : none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     width: 18rem;
     padding: 25px;
-    position: relative;
     top: 11%;
-    left: -100%;
+    /* left: -100%; */
 }
 
 .profileImage {
@@ -44,4 +44,13 @@
 .subtitle{
     font-size: x-small;
     margin: 0;
+}
+
+@media only screen   
+and (min-width: 950px)  {
+    .card{
+        position: absolute;
+        top: 27%;
+        left: 65%;
+    }
 }
