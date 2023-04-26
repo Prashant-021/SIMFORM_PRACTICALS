@@ -1,0 +1,18 @@
+.profileImg {
+    height: 3.5rem;
+    border-radius: 50%;
+}
+
+.userTable {
+    width: 80%;
+}
+
+.textArea {
+    vertical-align: middle;
+}
+
+.selectOptions {
+    background-color: aliceblue;
+    width: 70%;
+}
+

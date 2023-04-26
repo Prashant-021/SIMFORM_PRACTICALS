@@ -1,0 +1,14 @@
+.App{
+  height: 100vh;
+}
+
+.infoBox{
+  right: 12px;
+}
+
+.box{
+  min-height: 60vh;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #ffff;
+}
