@@ -54,8 +54,8 @@ const Userinfo = () => {
                 style={coordinates.x !== 0
                     ? {
                         position: "absolute",
-                        left: coordinates.x,
-                        top: coordinates.y
+                        left: coordinates.x +20,
+                        top: '30%'
                     } : {
                         position: "absolute",
                         left: "65%",

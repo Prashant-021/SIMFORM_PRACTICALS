@@ -4,6 +4,7 @@ import './App.css';
 import Userlist from './components/userList/Userlist';
 import Userinfo from './components/userInfo/Userinfo';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   
@@ -24,9 +25,7 @@ function App() {
           </div>
         </div>
       </div>
-      <footer className='bg-light position-absolute w-100 bottom-0'>
-        This is footer
-      </footer>
+      <Footer/>
     </>
   );
 }
