@@ -8,8 +8,8 @@ const Userlist = () => {
     const userlist = useSelector((state:IRootState) => state.userDetails);
 
     return (
-        <>
-            <table className="table userTable">
+        <div className='table-responsive text-nowrap'>
+            <table className="table table-hover userTable">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -24,7 +24,7 @@ const Userlist = () => {
                     ))}
                 </tbody>
             </table>
-        </>
+        </div>
 
     )
 }

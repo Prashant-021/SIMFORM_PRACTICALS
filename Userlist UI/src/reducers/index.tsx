@@ -52,7 +52,7 @@ const initialState: IRootState = {
             "avatar": "https://reqres.in/img/faces/5-image.jpg",
             "clicksReviewed": "1500",
             "monthlyClicks": "3000",
-            "isUserActive": false
+            "isUserActive": true
         },
         {
             "id": 6,
@@ -68,7 +68,7 @@ const initialState: IRootState = {
     userProfile: []
 }
 
-const UserdetailsReducer = (state: IRootState = initialState, action: UserAction) => {
+export const UserdetailsReducer = (state: IRootState = initialState, action: UserAction) => {
     switch (action.type) {
         case 'mouseEnter':
             return {
@@ -89,4 +89,3 @@ const UserdetailsReducer = (state: IRootState = initialState, action: UserAction
     }
 }
 
-export default UserdetailsReducer

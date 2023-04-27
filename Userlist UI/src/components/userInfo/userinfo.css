@@ -5,7 +5,6 @@
     width: 18rem;
     padding: 25px;
     top: 11%;
-    /* left: -100%; */
 }
 
 .profileImage {
@@ -44,13 +43,4 @@
 .subtitle{
     font-size: x-small;
     margin: 0;
-}
-
-@media only screen   
-and (min-width: 950px)  {
-    .card{
-        position: absolute;
-        top: 27%;
-        left: 65%;
-    }
 }
