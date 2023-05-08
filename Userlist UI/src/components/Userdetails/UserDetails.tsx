@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IUser } from '../../interface'
 import { useDispatch } from 'react-redux'
-import { mouseEnter, mouseLeave } from '../../actions'
+import {  mouseClick, mouseLeave } from '../../actions'
 
 
 
@@ -10,17 +10,35 @@ type Props = {
 }
 
 const UserDetails = (props: Props) => {
+    const [isSmallscreen, setIsSmallscreen] = useState<boolean>(false)
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallscreen(window.innerWidth < 950)
+        }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+
+    }, [])
     const dispatch = useDispatch()
-    const handleMouseEnter = () => {
-        dispatch(mouseEnter(props.user))
-    }
     const handleMouseLeave = () => {
         dispatch(mouseLeave(props.user))
     }
+    const handleMouseClick = () => {
+        dispatch(mouseClick(props.user))
+    }
+
+    const eventHandlers = (isSmallscreen)
+        ? { onClick: handleMouseClick }
+        : { onMouseEnter: handleMouseClick, onMouseLeave: handleMouseLeave }
+
     return (
         <tr>
-            <td onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='d-flex align-items-center'>
-                <img className='profileImg me-2' src={props.user.avatar} alt="" />
+        <td className='d-flex align-items-center' {...eventHandlers}>    <img className='profileImg me-2' src={props.user.avatar} alt="" />
                 <div className="name">
                     <h5 className='m-0'>{`${props.user.firstName}  ${props.user.lastName}`}</h5>
                     <p className='m-0 text-muted'>{props.user.email}</p>
@@ -47,3 +65,4 @@ const UserDetails = (props: Props) => {
 }
 
 export default UserDetails
+

@@ -26,3 +26,10 @@ export interface IMouseEnterAction{
 export interface IMouseLeaveAction{
     type: 'mouseLeave';
 }
+
+export interface IMouseClickAction{
+    type: 'mouseClick';
+    payload: {
+        user: IUser;
+    }
+}

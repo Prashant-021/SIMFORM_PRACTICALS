@@ -16,3 +16,13 @@ export const mouseLeave = (user: IUser) => {
     }
   }
 }
+
+export const mouseClick = (user: IUser) => {
+  return {
+    type: 'mouseClick',
+    payload: {
+      user,
+    }
+  }
+}
+

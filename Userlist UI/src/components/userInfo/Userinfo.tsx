@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { mouseLeave } from '../../actions';
 import { IRootState, IUser } from '../../interface'
 
 import './userinfo.css'
@@ -9,9 +10,8 @@ import './userinfo.css'
 
 const Userinfo = () => {
     const userProfileData = useSelector((state: IRootState) => state.userProfile);
-    const [coordinates, setCoordinates] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
 
-    const progressValue = Math.random() * 100 
+    const progressValue = Math.random() * 100
     let user: IUser
     if (userProfileData.length === 0) {
         user = {
@@ -27,23 +27,11 @@ const Userinfo = () => {
     } else {
         user = userProfileData[0].user
     }
+    const dispatch = useDispatch()
+    const closeInfoSection = () => {
+        dispatch(mouseLeave(user))
+    }
 
-
-    useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-            if (window.innerWidth < 950) {
-                setCoordinates({ x: event.clientX, y: event.clientY });
-            } else {
-                setCoordinates({ x: 0, y: 0 });
-            }
-
-        }
-        window.addEventListener("mousemove", handleMouseMove);
-
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove)
-        }
-    }, [])
 
 
     if (userProfileData.length === 0) {
@@ -51,17 +39,21 @@ const Userinfo = () => {
     } else {
         return (
             <div className='card bg-white'
-                style={coordinates.x !== 0
+                style={window.innerWidth < 950
                     ? {
                         position: "absolute",
-                        left: coordinates.x +20,
-                        top: '30%'
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        top: '50%'
                     } : {
                         position: "absolute",
                         left: "65%",
                         top: "27%"
                     }
                 }>
+                <div className="cancelBtnSection">
+                    <button className='cancelBtn' onClick={closeInfoSection}>X</button>
+                </div>
                 <div className="imgSection d-flex justify-content-center">
                     <img className='profileImage' src={user.avatar} alt="" />
                 </div>

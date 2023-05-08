@@ -1,5 +1,7 @@
 .App{
-  height: 85vh;
+  height: 46rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .infoBox{

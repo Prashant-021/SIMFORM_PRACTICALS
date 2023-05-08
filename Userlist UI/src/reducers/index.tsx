@@ -1,6 +1,6 @@
-import { IRootState, IMouseEnterAction, IMouseLeaveAction } from '../interface'
+import { IRootState, IMouseEnterAction, IMouseLeaveAction, IMouseClickAction, IUser } from '../interface'
 
-type UserAction = IMouseEnterAction | IMouseLeaveAction
+type UserAction = IMouseEnterAction | IMouseLeaveAction | IMouseClickAction | { type: 'addData', payload: IUser[] } | { type: 'deleteData', payload: number }
 
 const initialState: IRootState = {
     userDetails: [
@@ -70,7 +70,7 @@ const initialState: IRootState = {
 
 export const UserdetailsReducer = (state: IRootState = initialState, action: UserAction) => {
     switch (action.type) {
-        case 'mouseEnter':
+        case 'mouseClick':
             return {
                 ...state,
                 userProfile: [

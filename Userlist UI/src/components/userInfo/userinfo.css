@@ -44,3 +44,11 @@
     font-size: x-small;
     margin: 0;
 }
+.cancelBtn {
+    float: right;
+    border: none;
+    background: #feb23e;
+    color: white;
+    border-radius: 5px;
+
+}
