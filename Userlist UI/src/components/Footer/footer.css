@@ -1,0 +1,17 @@
+.footer{
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+}
+.footer a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
