@@ -1,0 +1,74 @@
+.card {
+    border: none;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 25px;
+    width: 18rem;
+    padding: 25px;
+    top: 11%;
+}
+
+.profileImage {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.userStatus {
+    width: inherit;
+}
+
+.progressBar,
+.usage {
+    border: 1px;
+    border-radius: 5px;
+    height: 5px;
+}
+
+.progressBar {
+    background-color: #d3d1d1;
+    margin-bottom: 15px;
+}
+
+.usage {
+    height: 5px;
+    border: 1px;
+    border-radius: 5px;
+}
+
+.activeUser{
+    background: rgb(9, 167, 9);
+}
+.inactiveUser{
+    background: #feb23e;
+}
+
+.separator {
+    border-left: 1px solid rgba(0, 0, 0, .179);
+}
+
+.subtitle {
+    font-size: x-small;
+    margin: 0;
+}
+
+.cancelBtn {
+    float: right;
+    border: none;
+    background: #feb23e;
+    color: white;
+    border-radius: 5px;
+
+}
+
+.smallScreen {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+.largeScreen {
+    position: absolute;
+    left: 80%;
+    top: 10%;
+}
