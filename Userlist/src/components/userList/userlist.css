@@ -1,0 +1,38 @@
+.profileImg {
+    border-radius: 50%;
+}
+.tableDiv{
+    width: 77%;
+    height: 24.5rem;
+}
+/* .tableDiv{
+    width: 100%;
+    height: 90%;
+    overflow-x: auto;
+}
+
+.userTable {
+    width: 150%;
+    table-layout: auto;
+} */
+
+.textArea {
+    vertical-align: middle;
+}
+
+.selectOptions {
+    background-color: aliceblue;
+    
+}
+
+.paginationSection{
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen   
+and (max-width: 950px)  {
+    .tableDiv{
+        width: 100%;
+    }
+}
