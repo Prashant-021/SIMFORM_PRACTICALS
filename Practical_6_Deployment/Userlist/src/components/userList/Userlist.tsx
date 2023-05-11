@@ -12,7 +12,7 @@ const Userlist = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get(`https://reqres.in/api/users?page=${pageNo}`);
+            const { data } = await axios.get(`${process.env.REACT_APP_API_URL}?page=${pageNo}`);
             console.log(data.data, "fetch data");           
             dispatch(addData(data.data))
         }

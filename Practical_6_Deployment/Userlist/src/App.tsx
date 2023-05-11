@@ -8,7 +8,8 @@ import Footer from './components/Footer/Footer';
 
 function App() {
 
-
+  console.log(process.env.REACT_APP_ENV);
+  
   return (
     <div className='mainBox'>
       <Header />
