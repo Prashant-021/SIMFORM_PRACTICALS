@@ -1,4 +1,4 @@
-# Deployment Pradctical
+# Deployment Practical
 
 ## Netlify (production environment)
 https://dainty-capybara-d2d06b.netlify.app/
