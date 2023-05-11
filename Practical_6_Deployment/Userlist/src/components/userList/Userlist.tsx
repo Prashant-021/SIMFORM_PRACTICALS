@@ -12,15 +12,14 @@ const Userlist = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get(`${process.env.REACT_APP_API_URL}?page=${pageNo}`);          
+            const { data } = await axios.get(`${process.env.REACT_APP_API_URL}?page=${pageNo}`);        
             dispatch(addData(data.data))
         }
         getData()
     }, [pageNo, dispatch])
 
     const deleteUser = (userId: number)=> {
-        dispatch(deleteData(userId))
-        
+        dispatch(deleteData(userId)) 
     }
 
     return (
