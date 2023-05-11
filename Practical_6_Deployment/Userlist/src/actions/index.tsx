@@ -27,7 +27,6 @@ export const mouseClick = (user: IUser) => {
 }
 
 export const addData = (arr: IUser[]) => {
-  console.log(arr, "addData")
   return {
     type: "addData",
     payload: arr

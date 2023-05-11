@@ -38,7 +38,6 @@ const UserDetails = (props: Props) => {
         : { onMouseEnter: handleMouseClick, onMouseLeave: handleMouseLeave }
 
     const handlechange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(props.index);
         const value = event.target.value;
         userInformation[props.index].UserStatus = value
         dispatch(addData(userInformation))

@@ -33,7 +33,6 @@ export const UserdetailsReducer = (state: IRootState = initialState, action: Use
         case 'deleteData':
             const updatedList = [...state.userDetails];
             updatedList.splice(action.payload, 1);
-            console.log(updatedList);
 
             return {
                 ...state,
