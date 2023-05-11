@@ -1,0 +1,23 @@
+
+
+.App {
+  height: 38rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.infoBox {
+  right: 12px;
+}
+
+.box {
+  border-radius: 20px;
+  padding: 30px;
+  padding-bottom: 0;
+  background-color: #ffff;
+}
+
+.emptyUserInfo {
+  height: 25.7rem;
+}
