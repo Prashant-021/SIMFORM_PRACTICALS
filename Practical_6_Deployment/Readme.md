@@ -7,4 +7,4 @@ https://dainty-capybara-d2d06b.netlify.app/
 https://userlistpractical6.web.app/
 
 ## Vercel (Development environment)
-https://vercel.com/prashant-021/simform-practicals/EmBjGnqMq6tkvnPSc92DWrn7M7cG
+https://simform-practicals-9h669mo8f-prashant-021.vercel.app/
