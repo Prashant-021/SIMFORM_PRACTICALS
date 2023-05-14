@@ -1,43 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useFormik } from 'formik'
-import { SignUpSchema } from '../../schema'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { SignUpSchema } from '../../schema';
+import { RootState, User } from '../../interface';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser } from '../redux/slice/slice';
 
-type Props = {}
+type Props = {};
 
-interface User { 
-    profilepicture: FileList[0] | [],   
-    name: string,
-    email: string,
-    phone: string,
-    password: string,
-    confirmPassword: string
-}
+
 
 const initialValues: User = {
-    profilepicture: [],
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: ""
-}
+  profilepicture: [],
+  name: '',
+  email: '',
+  phone: '',
+  password: '',
+  confirmPassword: ''
+};
 
 const Signup = (props: Props) => {
+  const users = useSelector((state: RootState) => state.user?.userList); // Update the selector
 
-    const { values, touched, errors, handleBlur, handleChange, handleSubmit } = useFormik({
-        initialValues: initialValues,
-        validationSchema: SignUpSchema,
-        onSubmit: (values: User, e) => {
-            console.log(values);
-        },
+  const dispatch = useDispatch();
+  const { values, touched, errors, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues: initialValues,
+    validationSchema: SignUpSchema,
+    onSubmit: (values: User) => {
+      dispatch(addUser(values));
+    }
+  });
 
-    });
+  useEffect(() => {
+    // const addedUser = users?.find((user) => user.email === values.email);
+    // if (addedUser) {
+    //   console.log('User added:', addedUser);
+      // Perform additional actions if needed
+     console.log('User added:', users);
 
+  }, [users]);
 
-    return (
-        <div className='flex bg-white rounded-xl mx-2 h=[40vh]  md:w-[100vh] drop-shadow-2xl'>
-
+  return (
+    <div className='flex bg-white rounded-xl mx-2 h=[40vh]  md:w-[100vh] drop-shadow-2xl'>
+     
             <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex justify-center items-center'>
                 <form action="" onSubmit={handleSubmit}>
                 <div className="inputGroup pt-4">
@@ -49,7 +54,8 @@ const Signup = (props: Props) => {
                             file:text-sm file:font-semibold
                             file:bg-violet-50 file:text-[#005ae6]
                             hover:file:bg-violet-100
-                        " accept="image/x-png,image/gif,image/jpeg" />
+                        " accept="image/x-png,image/gif,image/jpeg"
+                         />
                         </label>
                     </div>
                     <div className="inputGroup pb-4 pt-4">
@@ -85,7 +91,7 @@ const Signup = (props: Props) => {
                         <p>Password</p>
                         <div className='flex py-1 px-4 rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/lock.svg" alt="" />
-                            <input name='password' type="password" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                            <input name='password' type="password" autoComplete="off" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
                         </div>
                         {errors.password && touched.password ? (<p className='text-red-600 absolute'>{errors.password}</p>) : null}
                     </div>
@@ -93,7 +99,7 @@ const Signup = (props: Props) => {
                         <p>Confirm Password</p>
                         <div className='flex py-1 px-4 rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/lock.svg" alt="" />
-                            <input name='confirmPassword' type="password" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Confirm Password' value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
+                            <input name='confirmPassword' type="password" autoComplete="off" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Confirm Password' value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} />
                         </div>
                         {errors.confirmPassword && touched.confirmPassword ? (<p className='text-red-600 absolute'>{errors.confirmPassword}</p>) : null}
                     </div>

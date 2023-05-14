@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {}
 
 const Dashboard = (props: Props) => {
+    const Navigate = useNavigate()
     return (
         <div className='lg:flex w-full'>
             <div className="lg:w-1/5 h-[50vh] lg:h-[100vh] bg-[#005ae6] flex items-center relative">
@@ -12,6 +14,7 @@ const Dashboard = (props: Props) => {
             </div>
             <div className="lg:w-4/5 h-[50vh] lg:h-[100vh] flex items-center justify-center">
                 Information
+                <button onClick={() => Navigate('/Login')}>Logout</button>
             </div>
         </div>
     )
