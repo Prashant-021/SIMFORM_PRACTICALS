@@ -15,15 +15,23 @@ const initialValues: currentUser = {
 const Login = (props: Props) => {
     const Navigate = useNavigate()
     const users = useSelector((state: RootState) => state.user?.userList); // Update the selector
-    const { values, touched, errors, handleBlur, handleChange, handleSubmit } = useFormik({
+    const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldError } = useFormik({
         initialValues: initialValues,
         validationSchema: LoginSchema,
         onSubmit: (values: currentUser) => {
             console.log(values);
-            if(users.find((user: User) => user.email === values.Email && user.password === values.password )) 
-                Navigate('/dashboard')
+            const currentUser = users.find(user => values.Email === user.email)
+            if(currentUser){
+                if(currentUser.password === values.password){
+                    Navigate('/dashboard', {state: { user: currentUser}})
+                    sessionStorage.setItem("currentUser", values.Email)
+                }
+                else{
+                    setFieldError('password', 'Wrong Password')
+                }
+            } 
             else
-                alert("Invalid username or password")
+                setFieldError('Email', 'User not found')
         }
     })
     return (
