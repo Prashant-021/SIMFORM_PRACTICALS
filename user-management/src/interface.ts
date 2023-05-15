@@ -1,5 +1,5 @@
 export interface User { 
-    profilepicture: FileList[0] | null,   
+    profilepicture: string | ArrayBuffer | null,   
     name: string,
     email: string,
     phone: string,

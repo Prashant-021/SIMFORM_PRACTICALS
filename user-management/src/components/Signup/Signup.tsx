@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SignUpSchema } from '../../schema';
-import { RootState, User } from '../../interface';
-import { useDispatch, useSelector } from 'react-redux';
+import { User } from '../../interface';
+import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/slice/slice';
 
 type Props = {};
@@ -20,7 +20,9 @@ const initialValues: User = {
 };
 
 const Signup = (props: Props) => {
-    const users = useSelector((state: RootState) => state.user?.userList); // Update the selector
+
+    const [showPassword, setshowPassword] = useState<boolean>(false)
+    const Navigate = useNavigate()
 
     const dispatch = useDispatch();
     const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldValue } = useFormik({
@@ -28,21 +30,33 @@ const Signup = (props: Props) => {
         validationSchema: SignUpSchema,
         onSubmit: (values: User) => {
             dispatch(addUser(values));
+            sessionStorage.setItem("currentUser", values.email)
+            Navigate('/dashboard', { state: { user: values } })
+
         }
     });
 
-    useEffect(() => {
-        // const addedUser = users?.find((user) => user.email === values.email);
-        // if (addedUser) {
-        //   console.log('User added:', addedUser);
-        // Perform additional actions if needed
-        console.log('User added:', users);
-
-    }, [users]);
-
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.currentTarget.files?.[0];
-        setFieldValue('profilepicture', file);
+        if (file) {
+            const reader = new FileReader()
+
+            reader.onload = (e: ProgressEvent<FileReader>) => {
+                if (e.target) {
+                    const imageUrl = e.target.result as string;
+                    console.log(typeof imageUrl);
+                    setFieldValue('profilepicture', imageUrl);
+                }
+            }
+            reader.readAsDataURL(file)
+        }
+        console.log('hello');
+    }
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "e" || event.key === "+" || event.key === "-") {
+            event.preventDefault();
+        }
     };
 
 
@@ -99,7 +113,7 @@ const Signup = (props: Props) => {
                                 <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" />
                             </svg>
 
-                            <input name='phone' type="number" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Phone number' value={values.phone} onChange={handleChange} onBlur={handleBlur} />
+                            <input name='phone' type="number" onKeyDown={handleKeyDown} className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Phone number' value={values.phone} onChange={handleChange} onBlur={handleBlur} />
                         </div>
                         {errors.phone && touched.phone ? (<p className='text-red-600 absolute'>{errors.phone}</p>) : null}
                     </div>
@@ -107,7 +121,18 @@ const Signup = (props: Props) => {
                         <p>Password</p>
                         <div className='flex py-1 px-4 rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/lock.svg" alt="" />
-                            <input name='password' type="password" autoComplete="off" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                            <input name='password' type={showPassword ? "text" : "password"} autoComplete="off" className='ms-2 bg-inherit w-11/12 outline-0 ' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                            <label htmlFor='togglePassword' onClick={() => { setshowPassword(prevshowPassword => !prevshowPassword) }}>
+                                {showPassword ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                                    </svg>)}
+                            </label>
+                            <input type='checkbox' className='outline-0 hidden' name='togglePassword' />
                         </div>
                         {errors.password && touched.password ? (<p className='text-red-600 absolute'>{errors.password}</p>) : null}
                     </div>

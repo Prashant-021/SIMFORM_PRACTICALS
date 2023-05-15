@@ -1,27 +1,35 @@
 import * as yup from 'yup'
 
+const MAX_IMAGE_SIZE = 2 * 1024 * 1024;
 const phoneRegExp = /^[6-9]\d{9}$/;
 
-const validateFileSize = (value: File | null) => {
-    if (!value) {
-        return false;
-    }
-    return value.size <= 1048576; // Maximum file size: 1MB
-};
-
-const validateFileType = (value: File | null) => {
-    if (!value) {
-        return false;
-    }
-    return ['image/jpeg', 'image/png'].includes(value.type); // Allowed file types: JPEG and PNG
-}
 export const SignUpSchema = yup.object().shape({
-    profilepicture: yup.mixed<File>().required('Image is required').test('fileSize', 'File size is too large', validateFileSize)
-        .test('fileType', 'Invalid file type', validateFileType),
+    profilepicture: yup.string().required('Image is required').test('is-base64', 'Invalid image format', value => {
+        if (!value) {
+          return true;
+        }
+        const regex = /^data:image\/(png|jpe?g);base64,/i;
+        return regex.test(value);
+      }).test('is-size-valid', 'Image size exceeds the maximum allowed limit', value => {
+        if (!value) {
+            return true;
+        }
+        const bytes = Math.ceil((value.length - 'data:image/png;base64,'.length) * 0.75);
+        return bytes <= MAX_IMAGE_SIZE;
+    }),
     name: yup.string().min(5).max(25).required("Please enter your name"),
     email: yup.string().email().required("Please enter your email"),
     phone: yup.string().matches(phoneRegExp, 'Invalid phone number').required("Please enter your phone number"),
-    password: yup.string().min(6).required("Please enter your password"),
+    password: yup.string().matches(
+        /^(?=.*[A-Z])/,
+        'password must contain at least one uppercase letter'
+      ).matches(
+        /^(?=.*[!@#$%^&*])/,
+        'password must contain a special character (!@#$%^&*)'
+      ).matches(
+        /^(?=.*[0-9])/,
+        'password must contain at least one number'
+      ).min(6).required("please enter your password"),
     confirmPassword: yup.string().required().oneOf([yup.ref('password')], "Password must match")
 })
 
