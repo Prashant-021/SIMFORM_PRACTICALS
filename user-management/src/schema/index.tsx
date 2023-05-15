@@ -22,13 +22,13 @@ export const SignUpSchema = yup.object().shape({
     phone: yup.string().matches(phoneRegExp, 'Invalid phone number').required("Please enter your phone number"),
     password: yup.string().matches(
         /^(?=.*[A-Z])/,
-        'password must contain at least one uppercase letter'
+        'must contain one uppercase letter'
       ).matches(
         /^(?=.*[!@#$%^&*])/,
-        'password must contain a special character (!@#$%^&*)'
+        'must contain a special character'
       ).matches(
         /^(?=.*[0-9])/,
-        'password must contain at least one number'
+        'must contain at least one number'
       ).min(6).required("please enter your password"),
     confirmPassword: yup.string().required().oneOf([yup.ref('password')], "Password must match")
 })

@@ -15,15 +15,11 @@ const userSlice = createSlice({
     reducers: {
         addUser: (state, action: PayloadAction<User>) => {
             const storedUser: User[] = JSON.parse(localStorage.getItem("userList") || '[]');
-            const isUserExisting = state.userList.find(user => (user.name === action.payload.name || user.email === action.payload.email))
-            if (!isUserExisting) {
-                state.userList.push(action.payload);
-                const updatedUser = [...storedUser, action.payload]
-                localStorage.setItem("userList", JSON.stringify(updatedUser))
-                alert(`Welcome ${action.payload.name}`)
-            }
-            else
-                alert("User already exist")
+            state.userList.push(action.payload);
+            const updatedUser = [...storedUser, action.payload]
+            localStorage.setItem("userList", JSON.stringify(updatedUser))
+            alert(`Welcome ${action.payload.name}`)
+
         },
     },
 });

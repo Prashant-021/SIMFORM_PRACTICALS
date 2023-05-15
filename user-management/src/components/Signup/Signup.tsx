@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SignUpSchema } from '../../schema';
-import { User } from '../../interface';
-import { useDispatch } from 'react-redux';
+import { RootState, User } from '../../interface';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../redux/slice/slice';
 
 type Props = {};
@@ -20,18 +20,26 @@ const initialValues: User = {
 };
 
 const Signup = (props: Props) => {
+    const users = useSelector((state: RootState) => state.user?.userList);
 
     const [showPassword, setshowPassword] = useState<boolean>(false)
     const Navigate = useNavigate()
 
     const dispatch = useDispatch();
-    const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldValue } = useFormik({
+    const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldValue, resetForm } = useFormik({
         initialValues: initialValues,
         validationSchema: SignUpSchema,
         onSubmit: (values: User) => {
-            dispatch(addUser(values));
-            sessionStorage.setItem("currentUser", values.email)
-            Navigate('/dashboard', { state: { user: values } })
+            const userExists = users.find(user => user.name === values.name)
+            if (!userExists) {
+                dispatch(addUser(values));
+                sessionStorage.setItem("currentUser", values.email)
+                Navigate('/dashboard', { state: { user: values } })
+            }
+            else {
+                alert("User Already Exists")
+                resetForm()
+            }
 
         }
     });
@@ -145,6 +153,11 @@ const Signup = (props: Props) => {
 
                     <div className="submitSec w-full flex justify-center mt-3">
                         <button type="submit" className='py-2 px-8 bg-[#005ae6] rounded-md text-white hover:bg-black '>Sign Up</button>
+                        <button type="reset" className='bg-red-500 rounded-md ms-3 p-2 text-white' onClick={() => resetForm()}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </button>
                     </div>
                     <div className="infoSec py-2 text-center">
                         <p>Already have an account? <Link className='text-blue-500' to={'/login'}>Login</Link></p>
