@@ -44,13 +44,11 @@ const Signup = (props: Props) => {
             reader.onload = (e: ProgressEvent<FileReader>) => {
                 if (e.target) {
                     const imageUrl = e.target.result as string;
-                    console.log(typeof imageUrl);
                     setFieldValue('profilepicture', imageUrl);
                 }
             }
             reader.readAsDataURL(file)
         }
-        console.log('hello');
     }
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -149,7 +147,7 @@ const Signup = (props: Props) => {
                         <button type="submit" className='py-2 px-8 bg-[#005ae6] rounded-md text-white hover:bg-black '>Sign Up</button>
                     </div>
                     <div className="infoSec py-2 text-center">
-                        <p>Already have an account? <Link className='text-blue-500' to={'/Login'}>Login</Link></p>
+                        <p>Already have an account? <Link className='text-blue-500' to={'/login'}>Login</Link></p>
                     </div>
                 </form>
             </div>

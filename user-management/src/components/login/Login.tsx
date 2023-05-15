@@ -16,12 +16,11 @@ const Login = (props: Props) => {
 
     const [showPassword, setshowPassword] = useState<boolean>(false)
     const Navigate = useNavigate()
-    const users = useSelector((state: RootState) => state.user?.userList); // Update the selector
+    const users = useSelector((state: RootState) => state.user?.userList);
     const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldError } = useFormik({
         initialValues: initialValues,
         validationSchema: LoginSchema,
         onSubmit: (values: currentUser) => {
-            console.log(values);
             const currentUser = users.find(user => values.Email === user.email)
             if (currentUser) {
                 if (currentUser.password === values.password) {
@@ -49,7 +48,6 @@ const Login = (props: Props) => {
             <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex justify-center items-center'>
                 <form action="" onSubmit={handleSubmit}>
                     <div className="inputGroup py-2">
-
                         <p>Email</p>
                         <div className='flex py-1 px-4 relative rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/email.svg" alt="" />
@@ -84,7 +82,7 @@ const Login = (props: Props) => {
                         <button type="submit" className='py-2 px-8 bg-[#005ae6] rounded-md text-white hover:bg-black '>Login</button>
                     </div>
                     <div className="infoSec py-2 text-center">
-                        <p>Don't have an account? <Link className='text-blue-500' to={'/Signup'}>Sign Up</Link></p>
+                        <p>Don't have an account? <Link className='text-blue-500' to={'/signup'}>Sign Up</Link></p>
                     </div>
                 </form>
             </div>

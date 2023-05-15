@@ -10,13 +10,13 @@ const Dashboard = () => {
     const user: User | undefined = location.state && location.state.user;
     const Navigate = useNavigate()
     const handleSubmit = () => {
-        Navigate('/Login')
+        Navigate('/login')
         sessionStorage.clear()
     }
-
+ 
     useLayoutEffect(() => {
         if (sessionStorage.length === 0) {
-            Navigate('/Login')
+            Navigate('/login')
         }
     }, [Navigate])
 
