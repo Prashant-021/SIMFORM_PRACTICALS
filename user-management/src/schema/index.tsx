@@ -10,7 +10,7 @@ export const SignUpSchema = yup.object().shape({
         }
         const regex = /^data:image\/(png|jpe?g);base64,/i;
         return regex.test(value);
-      }).test('is-size-valid', 'Image size exceeds the maximum allowed limit', value => {
+      }).test('is-size-valid', 'Image size too large', value => {
         if (!value) {
             return true;
         }
@@ -29,8 +29,8 @@ export const SignUpSchema = yup.object().shape({
       ).matches(
         /^(?=.*[0-9])/,
         'must contain at least one number'
-      ).min(6).required("please enter your password"),
-    confirmPassword: yup.string().required().oneOf([yup.ref('password')], "Password must match")
+      ).min(6).required("Please enter your password"),
+    confirmPassword: yup.string().required("Please enter confirm Password").oneOf([yup.ref('password')], "Password must match")
 })
 
 export const LoginSchema = yup.object().shape({

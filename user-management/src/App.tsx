@@ -8,9 +8,8 @@ import PageNotFound from './components/404/PageNotFound';
 
 function App() {
   return (
-    <div className='bg-[#e7f2fe] flex justify-center items-center h-screen'>
+    <div className='bg-[#e7f2fe] min-h-screen flex justify-center items-center '>
       <Routes>
-
         <Route path='/' element={<Login />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />

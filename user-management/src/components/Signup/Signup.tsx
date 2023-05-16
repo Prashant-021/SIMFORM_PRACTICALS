@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SignUpSchema } from '../../schema';
@@ -25,6 +25,12 @@ const Signup = (props: Props) => {
     const [showPassword, setshowPassword] = useState<boolean>(false)
     const Navigate = useNavigate()
 
+    useLayoutEffect(() => {
+        if (sessionStorage.length !== 0) {
+            Navigate('/dashboard')
+        }
+    }, [Navigate])
+
     const dispatch = useDispatch();
     const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldValue, resetForm } = useFormik({
         initialValues: initialValues,
@@ -34,7 +40,7 @@ const Signup = (props: Props) => {
             if (!userExists) {
                 dispatch(addUser(values));
                 sessionStorage.setItem("currentUser", values.email)
-                Navigate('/dashboard', { state: { user: values } })
+                Navigate('/dashboard')
             }
             else {
                 alert("User Already Exists")
@@ -67,31 +73,30 @@ const Signup = (props: Props) => {
 
 
     return (
-        <div className='flex bg-white rounded-xl mx-2 h=[40vh]  md:w-[100vh] drop-shadow-2xl'>
+        <div className='flex bg-white  rounded-xl mx-2 my-8 md:w-[100vh] drop-shadow-2xl'>
             <div className='w-1/2 bg-[#005ae6] rounded-l-xl  hidden md:flex'>
-                <div className=' px-4 py-7 '>
+                <div className='w-full px-4 py-7 '>
                     <p className='text-4xl text-center font-bold text-white me-3'>SignUp</p>
-                    <div className='w-11/12'>
-                        <img src="/img/Login/login.jpg" alt="" />
+                    <div className='w-full h-[80%] flex justify-center items-center'>
+                        <img src="/img/Signup.svg" width={'80%'} alt="" />
                     </div>
                 </div>
             </div>
-            <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex justify-center items-center'>
+            <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex flex-col justify-center items-center'>
+                <p className='text-4xl text-center font-bold md:hidden me-3'>SignUp</p>
                 <form action="" onSubmit={handleSubmit}>
-                    <div className="inputGroup pt-4">
+                    <div className="inputGroup pt-4 mb-3">
                         <p>Select Profile Picture</p>
-                        <label className="block py-2 relative">
-                            <input name='profilepicture' type="file" className="block w-full text-sm text-slate-500
+                        <input name='profilepicture' type="file" className="block w-full text-sm text-slate-500
                             file:mr-4 file:py-2 file:px-4
                             file:rounded-full file:border-0
                             file:text-sm file:font-semibold
                             file:bg-blue-50 file:text-[#005ae6]
                             hover:file:bg-violet-100
                         " accept="image/x-png,image/gif,image/jpeg"
-                                onChange={handleFileChange}
-                                onBlur={handleBlur}
-                            />
-                        </label>
+                            onChange={handleFileChange}
+                            onBlur={handleBlur}
+                        />
                         {errors.profilepicture && touched.profilepicture ? (<p className='text-red-600 absolute'>{errors.profilepicture}</p>) : null}
                     </div>
                     <div className="inputGroup pb-4 pt-4">
@@ -142,7 +147,7 @@ const Signup = (props: Props) => {
                         </div>
                         {errors.password && touched.password ? (<p className='text-red-600 absolute'>{errors.password}</p>) : null}
                     </div>
-                    <div className="inputGroup pb-4 pt-4">
+                    <div className="inputGroup pb-5 pt-4">
                         <p>Confirm Password</p>
                         <div className='flex py-1 px-4 rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/lock.svg" alt="" />

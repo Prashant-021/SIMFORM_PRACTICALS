@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { LoginSchema } from '../../schema'
@@ -17,6 +17,11 @@ const Login = (props: Props) => {
     const [showPassword, setshowPassword] = useState<boolean>(false)
     const Navigate = useNavigate()
     const users = useSelector((state: RootState) => state.user?.userList);
+    useLayoutEffect(() => {
+        if (sessionStorage.length !== 0) {
+            Navigate('/dashboard')
+        }
+    }, [Navigate])
     const { values, touched, errors, handleBlur, handleChange, handleSubmit, setFieldError } = useFormik({
         initialValues: initialValues,
         validationSchema: LoginSchema,
@@ -24,7 +29,7 @@ const Login = (props: Props) => {
             const currentUser = users.find(user => values.Email === user.email)
             if (currentUser) {
                 if (currentUser.password === values.password) {
-                    Navigate('/dashboard', { state: { user: currentUser } })
+                    Navigate('/dashboard')
                     sessionStorage.setItem("currentUser", values.Email)
                 }
                 else {
@@ -36,7 +41,7 @@ const Login = (props: Props) => {
         }
     })
     return (
-        <div className='flex bg-white rounded-xl mx-2 md:w-[100vh] drop-shadow-2xl'>
+        <div className='flex bg-white rounded-xl mx-2 my-8 md:w-[100vh] drop-shadow-2xl'>
             <div className='w-1/2 bg-[#005ae6] rounded-l-xl  hidden md:flex'>
                 <div className=' px-4 py-7'>
                     <p className='text-4xl font-bold text-white ms-3'>Login</p>
@@ -45,9 +50,11 @@ const Login = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex justify-center items-center'>
+            <div className='w-full md:w-1/2 bg-[#fffff] p-5 flex flex-col justify-center items-center'>
+
+                <p className='text-4xl font-bold md:hidden ms-3'>Login</p>
                 <form action="" onSubmit={handleSubmit}>
-                    <div className="inputGroup py-2">
+                    <div className="inputGroup py-2 mb-2 ">
                         <p>Email</p>
                         <div className='flex py-1 px-4 relative rounded-full border-2 bg-blue-100'>
                             <img className='w-5' src="/img/Login/email.svg" alt="" />
